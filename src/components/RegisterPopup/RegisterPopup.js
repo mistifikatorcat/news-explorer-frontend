@@ -39,8 +39,7 @@ function RegisterPopup(isOpen, onClose, onLoginClick) {
     title= "Sign Up"
     isOpen={isOpen}
     onClose={onClose}
-    onLoginClick={onLoginClick}
-    /*onSubmit={handleSubmit}*/>
+    onLoginClick={onLoginClick}>
       <fieldset className="form__fieldset">
       <input
           type="email"

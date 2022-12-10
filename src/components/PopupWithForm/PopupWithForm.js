@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
 
-export default function PopupWithForm(name, children, isOpen, onClose, onLoginClick, onRegisterClick, title) {
+export default function PopupWithForm({name, children, isOpen, onClose, onLoginClick, onRegisterClick, title}) {
 
   
  const enable = `${isOpen ? "popup_enabled" : ""}`;

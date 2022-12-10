@@ -71,7 +71,6 @@ function App(){
           />
           } />
         </Routes>
-        {/*
         <LoginPopup
             isOpen={isLoginPopupOpen}
             onRegisterClick={handleRegisterClick}
@@ -87,7 +86,6 @@ function App(){
         onClose={closeAllPopups}
         status={isSuccess}
       />
-        */}
         <Footer />
         </div>
         //</CurrentUserContext.Provider>
