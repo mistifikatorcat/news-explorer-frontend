@@ -1,0 +1,51 @@
+.navbar{
+    padding: 0 104px 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar__links{
+    display: flex;
+    align-items: center;
+    column-gap: 42px;
+}
+
+.navbar__link{
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.3;
+}
+
+.navbar__link_dark{
+color: #000;
+
+}
+
+.navbar__link_current{
+    text-decoration: underline;
+    text-underline-offset: 31px;
+    text-decoration-thickness: 3px;
+}
+
+.navbar__button{
+    padding: 12px 60px;
+    background: none;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.3;
+    border-radius: 1000px;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+
+.navbar__logout{
+    display: flex;
+    column-gap: 15px;
+}
+
