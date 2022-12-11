@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import './popupwithform.css';
 
 
 export default function PopupWithForm({name, children, isOpen, onClose, onLoginClick, onRegisterClick, title}) {
@@ -71,13 +72,13 @@ const handleRegisterClick = () => {
             </fieldset>
           </form>
           <div className="popup__redirect">
-            or{" "}
-            <Link
+            or {" "}
+            <NavLink
               className="popup__redirect_link"
               to={(name === 'login' ? handleRegisterClick : handleLoginClick)}
             >
-             {title === 'Sign In' ? 'Sign Up' : 'Sign In'}
-            </Link>
+             {title === 'Sign In' ? ' ' + 'Sign Up' : ' ' + 'Sign In'}
+            </NavLink>
           </div>
         </div>
       </div>

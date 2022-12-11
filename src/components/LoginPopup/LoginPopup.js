@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
+import './loginpopup.css';
 //import { Link } from "react-router-dom";
 
-function LoginPopup(isOpen, onClose, onRegisterClick) {
+function LoginPopup({isOpen, onClose, onRegisterClick}) {
   //const [email, setEmail] = React.useState("");
   //const [password, setPassword] = React.useState("");
 
@@ -33,7 +34,7 @@ function LoginPopup(isOpen, onClose, onRegisterClick) {
       <input
           type="email"
           name="email"
-          className="login__input"
+          className="form__input"
           placeholder="Enter Email"
          // value={email}
           required
@@ -43,7 +44,7 @@ function LoginPopup(isOpen, onClose, onRegisterClick) {
         <input
           type="password"
           name="password"
-          className="login__input"
+          className="form__input"
           placeholder="Password"
          // value={password}
           required

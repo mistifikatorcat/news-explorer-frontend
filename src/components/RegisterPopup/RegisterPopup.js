@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
+import './registerpopup.css';
 // import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 // import { Link } from "react-router-dom";
 
-function RegisterPopup(isOpen, onClose, onLoginClick) {
+function RegisterPopup({isOpen, onClose, onLoginClick}) {
   // const currentUser = React.useContext(CurrentUserContext)
   // const [email, setEmail] = React.useState("");
   // const [password, setPassword] = React.useState("");
@@ -44,7 +45,7 @@ function RegisterPopup(isOpen, onClose, onLoginClick) {
       <input
           type="email"
           name="email"
-          className="register__input"
+          className="form__input"
           placeholder="Email"
           //value={email}
           required
@@ -54,7 +55,7 @@ function RegisterPopup(isOpen, onClose, onLoginClick) {
         <input
           type="password"
           name="password"
-          className="register__input"
+          className="form__input"
           placeholder="Password"
          // value={password}
           required
@@ -64,7 +65,7 @@ function RegisterPopup(isOpen, onClose, onLoginClick) {
         <input
           type="username"
           name="username"
-          className="register__input"
+          className="form__input"
           placeholder="Username"
          // value={username}
           required
