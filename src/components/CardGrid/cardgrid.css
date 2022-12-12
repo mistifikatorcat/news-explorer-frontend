@@ -4,7 +4,6 @@
     row-gap: 64px;
     align-items: center;
     padding: 0 calc((100% - 1440px) / 2) 0;
-    padding-top: 80px;
   }
 
 .grid__gallery{
@@ -16,4 +15,16 @@
     grid-template-columns: repeat(3, 1fr);
     column-gap: 16px;
     row-gap: 16px;
+}
+
+@media screen and (max-width: 1020px) {
+    .grid{
+        row-gap: 32px;
+    }
+
+    .grid__gallery{
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 8px;
+        row-gap: 8px;
+    }
 }

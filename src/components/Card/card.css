@@ -153,3 +153,24 @@
     overflow: hidden;
     
   }
+
+  @media screen and (max-width: 1020px) {
+    .card__info {
+      padding: 16px 16px 26px;
+    }
+    .card__image {
+      max-height: 150px;
+    }
+  
+    .card__text {
+      -webkit-line-clamp: 4;
+    }
+  
+    .card__title {
+      font-size: 22px;
+    }
+  
+    .card__source {
+      width: 140px;
+    }
+  }
