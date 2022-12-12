@@ -39,7 +39,7 @@ function Navigation({isLoggedIn, username, onLoginClick}){
           ) : (
           <button
           to="/signin"
-          className="navbar__button navbar__login"
+          className={'navbar__button navbar__login ' + `${currentLocation === '/' ? '' : "navbar__button_black navbar__login_black"}`}
           onClick={onLoginClick}
         >
           Sign In

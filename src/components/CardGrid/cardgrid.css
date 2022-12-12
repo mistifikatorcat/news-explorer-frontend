@@ -3,7 +3,8 @@
     display: grid;
     row-gap: 64px;
     align-items: center;
-    padding: 80px calc(104px + ((100% - 1440px) / 2));
+    padding: 0 calc((100% - 1440px) / 2) 0;
+    padding-top: 80px;
   }
 
 .grid__gallery{

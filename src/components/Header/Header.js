@@ -3,7 +3,6 @@ import './header.css';
 import React from "react";
 import Navigation from '../Navigation/Navigation';
 import SearchForm from "../SearchForm/SearchForm";
-import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader'
 import logo_b from '../../images/NewsExplorer_logo_b.svg';
 import logo_w from '../../images/NewsExplorer_logo_w.svg';
 
@@ -16,7 +15,7 @@ function Header({isLoggedIn, username, onLoginClick}) {
 
 
   return (
-    <header className={`${currentLocation === '/' && 'header'} header` + whichBackground}>
+    <header className={`${currentLocation === '/' && 'header'} header ` + whichBackground}>
       <div className="header__nav-wrapper">
         <img className="header__logo" alt="News Explorer Logo" src={currentLocation === '/' ? logo_w : logo_b} />
         <Navigation
@@ -27,7 +26,7 @@ function Header({isLoggedIn, username, onLoginClick}) {
       {currentLocation === '/' ? (
         <SearchForm />
       ) :
-      <SavedNewsHeader />}
+      <></>}
     </header>
   );
 }

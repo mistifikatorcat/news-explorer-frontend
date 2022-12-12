@@ -7,12 +7,12 @@ import LoginPopup from '../LoginPopup/LoginPopup';
 import RegisterPopup from '../RegisterPopup/RegisterPopup';
 import SavedNews from '../SavedNews/SavedNews';
 import InfoToolTip from '../InfoToolTip/InfoToolTip';
-//import { CurrentUserContext } from '../contexts/CurrentUserContext';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { initialData } from '../../utils/initialData';
 
 
 function App(){
-    //const [currentUser, setCurrentUser] = React.useState({});
+    const [currentUser, setCurrentUser] = React.useState({});
     const [isLoggedIn, setIsLoggedIn] = React.useState(false);
     const [isLoading, setIsLoading] = React.useState(false);
     const [isSuccess, setIsSuccess] = React.useState("");
@@ -44,7 +44,7 @@ function App(){
       }
 
     return(
-      //  <CurrentUserContext.Provider value={currentUser}>
+        <CurrentUserContext.Provider value={username}>
         <div className="app">
         <Header 
            isLoggedIn={isLoggedIn}
@@ -54,7 +54,7 @@ function App(){
 
         <Routes>
           <Route 
-          path='/saved-news'
+          path='/saved-articles'
           element={
             <SavedNews
             username={username}

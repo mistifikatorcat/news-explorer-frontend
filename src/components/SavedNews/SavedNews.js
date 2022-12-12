@@ -6,7 +6,7 @@ import CardGrid from '../CardGrid/CardGrid';
 function SavedNews ({username, articles}) {
     return(
         <>
-        <SavedNewsHeader username={username} articles={articles} />
+        <SavedNewsHeader username={username} />
         <CardGrid articles={articles} />
         </>
     )
