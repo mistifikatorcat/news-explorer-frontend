@@ -64,9 +64,10 @@
   .card__hint-keyword{
     top: 24px;
     left: 24px;
-    display: none;
-    visibility: hidden;
-    opacity: 0;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    width: auto;
     transition: all 0.6s;
   }
 

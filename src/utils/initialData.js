@@ -82,6 +82,28 @@ export const initialData = [
     owner: "637ddf32983e9dd49645672d",
     __v: 0,
   },
+
+  {
+    _id: "637d321321123d2983e9dd496456732",
+    keyword: "ad",
+    title: "Better Call Saul!",
+    text: `Hi, I'm Saul Goodman. Did you know that you have rights? The constitution says you do! And so do I.
+    Conscience gets expensive, doesn't it?
+    For a substantial fee, and I do mean substantial, you and your loved ones can vanish. Untraceable.
+    I want it in a money order and make it out to Ice Station Zebra Associates. That's my loan out. It's totally legit … it's done just for tax purposes. After that we can discuss Visa or Mastercard, but definitely not American Express, so don't even ask, all right?
+    You're a high-risk client. You're gonna need the deluxe service. It's gonna cost you.
+    If you're committed enough, you can make any story work. I once told a woman I was Kevin Costner, and it worked because I believed it.
+    I never should have let my dojo membership run out.
+    Better safe than sorry. That's my motto.
+    As to your dead guy, occupational hazard. Drug dealer getting shot? I'm gonna go out on a limb here and say it's been known to happen."
+    Don't drink and drive, but if you do, call me.`,
+    source: "Saul Goodman",
+    date: "2022",
+    image: "https://copypastatext.com/wp-content/uploads/2022/04/index-62.jpg",
+    owner: "637ddf32983e9dd49645672d",
+    __v: 0,
+  },
+
   {
     _id: "637de08d983e9dd496456734",
     keyword: "Jojo",
