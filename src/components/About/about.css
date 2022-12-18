@@ -75,3 +75,36 @@
 
 
   }
+
+  @media screen and (max-width: 600px) {
+
+    .about{
+      padding: 0 auto;
+      flex-direction: column;
+      row-gap: 24px;
+    }
+
+    .about__image-wrapper{
+      width: 272px;
+      height: 272px;
+  }
+
+  .about__image{
+      min-width: 272px;
+      min-height: 272px;
+  }
+
+  .about__text-wrapper{
+    padding-bottom: 128px;
+  }
+
+  .about__text{
+font-size: 18px;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0px;
+text-align: left;
+
+  }
+
+  }

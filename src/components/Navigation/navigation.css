@@ -57,6 +57,10 @@ color: #000;
     column-gap: 15px;
 }
 
+.navbar__burger{
+    display: none;
+}
+
 
 @media screen and (max-width: 1020px) {
     .navbar {
@@ -65,4 +69,22 @@ color: #000;
 .navbar__links{
     gap: 16px;
 }
+  }
+
+  @media  screen and (max-width: 615px) {
+
+    .navbar{
+        padding: 16px;
+    }
+    
+    .navbar__links{
+        display: none;
+    }
+
+    .navbar__burger{
+        display: block;
+        background: none;
+        border: none;
+    }
+    
   }

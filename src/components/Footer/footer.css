@@ -40,6 +40,16 @@ color: #1A1B22;
 text-decoration: none;
 }
 
+.footer__icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 26px;
+    align-content: center;
+    align-items: center;
+    padding-left: 40px;
+}
+
 .footer__icon{
     width: 20px;
     height: 20px;
@@ -51,4 +61,28 @@ text-decoration: none;
         margin: 0;
         padding: 24px 41px 21px 40px;
     }
+}
+
+@media screen and (max-width: 430px) {
+    .footer{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .footer__nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .footer__links{
+        flex-direction: column;
+    }
+
+    .footer__copyright{
+        margin-top: 32px;
+        margin-bottom: 22px;
+    }
+
 }

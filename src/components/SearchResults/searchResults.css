@@ -39,3 +39,9 @@
         padding: 40px;
     }
 }
+
+@media screen and (max-width: 430px) {
+    .searchResults{
+      padding: 32px 16px;
+    }
+}

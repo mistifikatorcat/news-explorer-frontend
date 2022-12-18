@@ -32,7 +32,7 @@
 @media screen and (max-width: 1020px) {
     .header {
       background-position: center center;
-      max-height: 400px;
+      min-height: 400px;
       padding-bottom: 48px;
     }
 
@@ -41,4 +41,17 @@
         padding-top: 14px;
         /* padding-bottom: 18.47px; */
     }
+  }
+
+  @media screen and (max-width: 615px) {
+
+    .header{
+        padding: 0;
+    }
+
+    
+    .header__nav-wrapper{
+        padding: 0;
+    }
+
   }

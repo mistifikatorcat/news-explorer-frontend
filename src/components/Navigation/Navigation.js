@@ -11,6 +11,7 @@ function Navigation({isLoggedIn, username, onLoginClick, onMobileClick, signout}
 
   const location = useLocation();
   const currentLocation = location.pathname;
+  const isHome = currentLocation === '/';
   const darkButton = currentLocation === '/saved-articles' ? '_dark' : '';
 
   //const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -20,7 +21,7 @@ function Navigation({isLoggedIn, username, onLoginClick, onMobileClick, signout}
            <div className="navbar__links">
             <NavLink
             to= "/" 
-            className={`${currentLocation === '/' && 'navbar__link_current'} navbar__link navbar__link` + darkButton} //if not work try ? :
+            className={`${isHome && 'navbar__link_current'} navbar__link navbar__link` + darkButton} //if not work try ? :
           >
             Home
           </NavLink>
@@ -35,27 +36,24 @@ function Navigation({isLoggedIn, username, onLoginClick, onMobileClick, signout}
            <button className="navbar__button navbar__logout"
             onClick={signout}>
               {username}
-              <img src={currentLocation === '/' ? signout_white : signout_black} alt="exit"/>
-           </button>
-           <button onClick={onMobileClick} className="navbar__burger">
-            <img src={currentLocation === '/' ? burger_white : burger_black} alt="mobile menu" />
+              <img src={isHome ? signout_white : signout_black} alt="exit"/>
            </button>
            </>
           ) : (
             <>
           <button
           to="/signin"
-          className={'navbar__button navbar__login ' + `${currentLocation === '/' ? '' : "navbar__button_black navbar__login_black"}`}
+          className={'navbar__button navbar__login ' + `${isHome ? '' : "navbar__button_black navbar__login_black"}`}
           onClick={onLoginClick}
         >
           Sign In
         </button>
-        <button onClick={onMobileClick} className="navbar__burger">
-         <img src={currentLocation === '/' ? burger_white : burger_black} alt="mobile menu" />
-        </button>
             </>
           )}
           </div>
+          <button onClick={onMobileClick} className="navbar__burger">
+            <img src={isHome ? burger_white : burger_black} alt="mobile menu" />
+           </button>
         </nav>
     )
 }

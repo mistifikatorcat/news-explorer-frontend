@@ -17,9 +17,15 @@
     }
   }
   
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 615px) {
     .page {
-      max-width: 320px;
+      max-width: 615px;
+    }
+  }
+  
+  @media screen and (max-width: 430px) {
+    .page {
+      max-width: 430px;
     }
   }
   

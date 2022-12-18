@@ -7,23 +7,25 @@ import logo_b from '../../images/NewsExplorer_logo_b.svg';
 import logo_w from '../../images/NewsExplorer_logo_w.svg';
 
 
-function Header({isLoggedIn, username, onLoginClick}) {
+function Header({isLoggedIn, username, onLoginClick, onMobileClick}) {
 
   const location = useLocation();
   const currentLocation = location.pathname;
-  const whichBackground = currentLocation === '/saved-articles' ? 'header__white' : '';
+  const isHome = currentLocation === '/';
+ 
 
 
   return (
-    <header className={`${currentLocation === '/' && 'header'} header ` + whichBackground}>
+    <header className={`${isHome ? 'header' : 'header__white'}`}>
       <div className="header__nav-wrapper">
-        <img className="header__logo" alt="News Explorer Logo" src={currentLocation === '/' ? logo_w : logo_b} />
+        <img className="header__logo" alt="News Explorer Logo" src={isHome ? logo_w : logo_b} />
         <Navigation
         isLoggedIn={isLoggedIn}
         username={username}
-        onLoginClick={onLoginClick} />
+        onLoginClick={onLoginClick} 
+        onMobileClick={onMobileClick}/>
       </div>
-      {currentLocation === '/' ? (
+      {isHome ? (
         <SearchForm />
       ) :
       <></>}
