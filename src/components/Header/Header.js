@@ -7,7 +7,7 @@ import logo_b from '../../images/NewsExplorer_logo_b.svg';
 import logo_w from '../../images/NewsExplorer_logo_w.svg';
 
 
-function Header({isLoggedIn, username, onLoginClick, onMobileClick}) {
+function Header({isLoggedIn, username, onLoginClick, onMobileMenuClick}) {
 
   const location = useLocation();
   const currentLocation = location.pathname;
@@ -23,7 +23,7 @@ function Header({isLoggedIn, username, onLoginClick, onMobileClick}) {
         isLoggedIn={isLoggedIn}
         username={username}
         onLoginClick={onLoginClick} 
-        onMobileClick={onMobileClick}/>
+        onMobileMenuClick={onMobileMenuClick}/>
       </div>
       {isHome ? (
         <SearchForm />

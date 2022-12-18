@@ -7,6 +7,9 @@ import LoginPopup from '../LoginPopup/LoginPopup';
 import RegisterPopup from '../RegisterPopup/RegisterPopup';
 import SavedNews from '../SavedNews/SavedNews';
 import InfoToolTip from '../InfoToolTip/InfoToolTip';
+import MobileMenu from "../MobileMenu/MobileMenu";
+import MobileLogin from "../MobileLogin/MobileLogin";
+import MobileRegister from '../MobileRegister/MobileRegister';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { initialData } from '../../utils/initialData';
 
@@ -18,6 +21,9 @@ function App(){
     const [isSuccess, setIsSuccess] = React.useState("");
     const [isLoginPopupOpen, setIsLoginPopupOpen] = React.useState(false);
   const [isRegisterPopupOpen, setIsRegisterPopupOpen] = React.useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const [isMobileRegisterOpen, setIsMobileRegisterOpen] = React.useState(false);
+  const [isMobileLoginOpen, setIsMobileLoginOpen] = React.useState(false);
   const [isInfoToolTipOpen, setIsInfoToolTipOpen] = React.useState(false);
   const [articles, setArticles] = React.useState(initialData);
 
@@ -29,6 +35,7 @@ function App(){
     setIsLoginPopupOpen(false);
     setIsRegisterPopupOpen(false);
     setIsInfoToolTipOpen(false);
+    setIsMobileMenuOpen(false);
   }
 
 
@@ -43,15 +50,33 @@ function App(){
         setIsRegisterPopupOpen(true);
       }
 
+      function handleMobileMenuClick(){
+        setIsMobileMenuOpen(true);
+      }
+
+      // function handleMobileRegisterClick(){
+      //   setIsMobileRegisterOpen(true);
+      // }
+
+       function handleMobileLoginClick(){
+         setIsMobileLoginOpen(true);
+      }
+
     return(
         <CurrentUserContext.Provider value={username}>
         <div className="app">
+        <MobileMenu
+        isOpen={isMobileMenuOpen}
+        onMobileLoginClick={handleMobileLoginClick}
+        onClose={closeAllPopups}
+        />
         <Header 
            isLoggedIn={isLoggedIn}
            username={username}
            onLoginClick={handleLoginClick}
+           onRegisterClick={handleRegisterClick}
+           onMobileMenuClick={handleMobileMenuClick}
         />
-
         <Routes>
           <Route 
           path='/saved-articles'

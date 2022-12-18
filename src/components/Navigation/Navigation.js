@@ -7,7 +7,7 @@ import burger_white from '../../images/burger.svg';
 import burger_black from '../../images/burger_b.svg';
 
 
-function Navigation({isLoggedIn, username, onLoginClick, onMobileClick, signout}){
+function Navigation({isLoggedIn, username, onLoginClick, onMobileMenuClick, signout}){
 
   const location = useLocation();
   const currentLocation = location.pathname;
@@ -51,7 +51,7 @@ function Navigation({isLoggedIn, username, onLoginClick, onMobileClick, signout}
             </>
           )}
           </div>
-          <button onClick={onMobileClick} className="navbar__burger">
+          <button onClick={onMobileMenuClick} className="navbar__burger">
             <img src={isHome ? burger_white : burger_black} alt="mobile menu" />
            </button>
         </nav>

@@ -23,12 +23,15 @@ function MobileMenu({isLoggedIn, username, onLoginClick, signout, isOpen, onClos
     return(
         <section className={`mobile-menu ${enable}`}>
             <div className={`mobile-menu__container ${isHome ? ' ' : 'mobile-menu__container_white'}`} onClick={handleOverlay}>
-            <img className="mobile-menu__logo" alt="News Explorer Logo" src={isHome ? logo_w : logo_b} />
+              <div className="mobile-menu__header">
+              <img className="mobile-menu__logo" alt="News Explorer Logo" src={isHome ? logo_w : logo_b} />
             <button
           className={`mobile-menu__close`}
           onClick={onClose}
         ></button>
-        <NavLink
+              </div>
+              <div className="mobile__menu-links">
+              <NavLink
             to={`${isHome ? '/saved-articles' : '/'}` }
             className='mobile-menu__link'
           >
@@ -53,7 +56,10 @@ function MobileMenu({isLoggedIn, username, onLoginClick, signout, isOpen, onClos
         </button>
             </>
           )}
+              </div>
                 </div> 
         </section>
     )
 }
+
+export default MobileMenu;
