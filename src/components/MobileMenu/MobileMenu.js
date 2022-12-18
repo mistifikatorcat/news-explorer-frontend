@@ -30,7 +30,7 @@ function MobileMenu({isLoggedIn, username, onLoginClick, signout, isOpen, onClos
           onClick={onClose}
         ></button>
               </div>
-              <div className="mobile__menu-links">
+              <div className="mobile-menu__links">
               <NavLink
             to={`${isHome ? '/saved-articles' : '/'}` }
             className='mobile-menu__link'
