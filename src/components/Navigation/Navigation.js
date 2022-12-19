@@ -19,12 +19,22 @@ function Navigation({isLoggedIn, username, onLoginClick, onMobileMenuClick, sign
     return(
         <nav className="navbar">
            <div className="navbar__links">
+            
             <NavLink
             to= "/" 
-            className={`${isHome && 'navbar__link_current'} navbar__link navbar__link` + darkButton} //if not work try ? :
+            className={`${isHome ? 'navbar__link_current' : ''} navbar__link navbar__link` + darkButton} //if not work try ? :
           >
             Home
           </NavLink>
+
+          
+          <NavLink
+            to= "/saved-articles" 
+            className={`${!isHome ? 'navbar__link_current' : ''} navbar__link navbar__link` + darkButton} //if not work try ? :
+          >
+            Saved News
+          </NavLink>
+
           {isLoggedIn ? (
            <>
              <NavLink

@@ -3,7 +3,10 @@
     display: grid;
     row-gap: 64px;
     align-items: center;
-    padding: 0 calc((100% - 1440px) / 2) 0;
+  }
+
+  .grid_saved{
+    padding: 0 104px;
   }
 
 .grid__gallery{

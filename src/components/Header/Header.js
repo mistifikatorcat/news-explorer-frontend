@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, NavLink } from "react-router-dom";
 import './header.css';
 import React from "react";
 import Navigation from '../Navigation/Navigation';
@@ -18,7 +18,9 @@ function Header({isLoggedIn, username, onLoginClick, onMobileMenuClick}) {
   return (
     <header className={`${isHome ? 'header' : 'header__white'}`}>
       <div className="header__nav-wrapper">
-        <img className="header__logo" alt="News Explorer Logo" src={isHome ? logo_w : logo_b} />
+        <NavLink to='/' className='header__logo'>
+        <img className="header__logo-picture" alt="News Explorer Logo" src={isHome ? logo_w : logo_b} />
+        </NavLink>
         <Navigation
         isLoggedIn={isLoggedIn}
         username={username}

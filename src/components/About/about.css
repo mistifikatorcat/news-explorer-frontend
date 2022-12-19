@@ -1,14 +1,15 @@
 .about {
     display: flex;
     column-gap: 58px;
-    padding: 0 calc((100% - 1440px) / 2) 0;
-    padding-top: 80px;
+    padding: 0;
+    ;
   }
 
   .about__image-wrapper{
     width: 464px;
     height: 464px;
     align-self: center;
+    margin: 80px 0 80px 104px;
   }
 
   .about__image{
@@ -22,7 +23,7 @@
   }
 
   .about__text-wrapper{
-    padding-top: 51px;
+    padding-top: 131px;
     max-width: 600px;
   }
 
@@ -30,6 +31,7 @@
     font-family: 'Roboto Slab', serif;
     font-size: 40px;
     line-height: 1.1;
+    font-weight: 400;
     color: #1A1B22;
     margin: 0;
     padding-bottom: 24px;

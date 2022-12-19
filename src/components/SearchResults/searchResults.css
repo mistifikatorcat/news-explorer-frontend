@@ -3,12 +3,13 @@
     display: grid;
     row-gap: 64px;
     align-items: center;
-    padding: 80px calc(104px + ((100% - 1440px) / 2));
+    padding: 80px 104px;
 }
 
 .searchResults__title{
   margin: 0;
   font-family: 'Roboto Slab', serif;
+  font-weight: 400;
   font-size: 40px;
   line-height: 1.1;
   color: #1A1B22;

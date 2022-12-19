@@ -1,12 +1,18 @@
 import React from "react";
 import './cardgrid.css';
 import Card from "../Card/Card";
+import { useLocation } from "react-router-dom";
 
 
 
 function CardGrid({articles}){
+
+  const location = useLocation();
+  const currentLocation = location.pathname;
+  const isSaved = currentLocation === '/saved-articles';
+
     return(
-        <section className="grid">
+        <section className={` grid ${isSaved ? 'grid_saved' : ' '}`}>
             <ul className="grid__gallery">
             {articles.map((card) => (
             <Card

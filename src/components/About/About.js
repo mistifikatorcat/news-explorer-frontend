@@ -10,7 +10,7 @@ function About(){
             <img className="about__image" src={picture}></img>
             </div>
             <div className="about__text-wrapper">
-            <h1 className="about__title">About the author.</h1>
+            <h2 className="about__title">About the author.</h2>
 
             <p className="about__text">
             My name is Walter Hartwell White.
