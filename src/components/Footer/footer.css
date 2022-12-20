@@ -59,7 +59,7 @@ text-decoration: none;
 @media screen and (max-width: 1020px) {
     .footer{
         margin: 0;
-        padding: 24px 41px 21px 40px;
+        padding: 24px 41px 0 40px;
     }
 }
 

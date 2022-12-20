@@ -39,6 +39,14 @@
     .searchResults{
         padding: 40px;
     }
+
+    .searchResults__title{
+
+      font-size: 30px;
+      line-height: 34px;
+      letter-spacing: 0px;
+
+    }
 }
 
 @media screen and (max-width: 430px) {

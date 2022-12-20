@@ -20,6 +20,11 @@
     row-gap: 16px;
 }
 
+/* .grid__gallery-card{
+    max-height: 576px;
+} */
+
+
 @media screen and (max-width: 1020px) {
     .grid{
         row-gap: 32px;
@@ -29,14 +34,14 @@
         column-gap: 8px;
         row-gap: 8px;
     }
+
+    /* .grid__gallery-card{
+        max-height: 420px;
+    } */
+
 }
 
-@media screen and (max-width: 768px) {
-    .grid__gallery{
-    grid-template-columns: repeat(2, 1fr);
 
-    }
-}
 
 @media screen and (max-width: 430px) {
     .grid__gallery{

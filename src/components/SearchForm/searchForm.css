@@ -88,6 +88,7 @@ margin: 32px auto 0;
     .searchForm__title {
       font-size: 36px;
       margin: 0;
+      line-height: 40px;
     }
 
     .searchForm__searchbar{
@@ -102,12 +103,12 @@ margin: 32px auto 0;
 
   }
   
-  @media screen and (max-width: 768px) {
+  /* @media screen and (max-width: 768px) {
     .searchForm {
       padding-left: 100px;
     }
     
-  }
+  } */
   
   @media screen and (max-width: 560px) {
     .searchForm {

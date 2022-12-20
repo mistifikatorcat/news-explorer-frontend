@@ -55,13 +55,14 @@
     }
 
     .about__image-wrapper{
-        width: 250px;
-        height: 250px;
+        width: 232px;
+        height: 232px;
+        margin: 80px auto;
     }
 
     .about__image{
-        min-width: 250px;
-        min-height: 250px;
+        min-width: 232px;
+        min-height: 232px;
     }
 
     .about__text-wrapper{
