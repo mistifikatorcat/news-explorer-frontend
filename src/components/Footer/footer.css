@@ -58,13 +58,14 @@ text-decoration: none;
 
 @media screen and (max-width: 1020px) {
     .footer{
-        margin: 0;
+        margin: 0 auto;
         padding: 24px 41px 0 40px;
     }
 }
 
 @media screen and (max-width: 430px) {
     .footer{
+        padding: 22px 18px 22px 16px;
         display: flex;
         flex-direction: column-reverse;
     }

@@ -7,7 +7,7 @@
  flex-direction: column;
  flex-wrap: nowrap;
  align-content: center;
- align-items: flex-center;
+ align-items: center;
 }
 
  .searchForm__wrapper{
@@ -157,7 +157,7 @@ padding-bottom: 122px;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    row-gap: 16px;
+    /* row-gap: 16px; */
     width: 288px;
     }
 

@@ -191,6 +191,11 @@
   }
 
   @media screen and (max-width: 430px) {
+
+    .card{
+      min-height: 440px;
+      width: 288px;
+    }
   
     .card__text {
       -webkit-line-clamp: 10;
