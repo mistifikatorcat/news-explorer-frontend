@@ -24,11 +24,12 @@ function LoginPopup({isOpen, onClose, onRegisterClick}) {
   return (
     <PopupWithForm
     name= "login"
-    title= "Sign In"
     isOpen={isOpen}
     onClose={onClose}
     /*onSubmit = {handleSubmit}*/
     onRegisterClick = {onRegisterClick}
+    title= "Sign In"
+    
   >
       <fieldset className="form__fieldset">
       <input

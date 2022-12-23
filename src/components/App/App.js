@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes, Redirect, useHistory } from "react-router-dom";
+import { Route, Routes, useLocation, useHistory } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
@@ -24,6 +24,20 @@ function App(){
   const [articles, setArticles] = React.useState(initialData);
 
   const username = 'Daniel';
+
+
+    // let location = useLocation();
+
+    // React.useEffect(() => {
+    //   if(location.pathname === '/login') {
+    //     setIsLoginPopupOpen(true);
+    //     setIsRegisterPopupOpen(false);
+    //   }
+    //   if(location.pathname === '/register') {
+    //     setIsLoginPopupOpen(false);
+    //     setIsRegisterPopupOpen(true);
+    //   }
+    // }, [location]);
 
 
 
@@ -88,13 +102,13 @@ function App(){
         </Routes>
         <LoginPopup
             isOpen={isLoginPopupOpen}
-            onRegisterClick={handleRegisterClick}
             onClose={closeAllPopups}
+            onRegisterClick={handleRegisterClick}
         />
         <RegisterPopup
-        isOpen={isRegisterPopupOpen}
-        onLoginClick={handleLoginClick}
+        isOpen={isRegisterPopupOpen}        
         onClose={closeAllPopups}
+        onLoginClick={handleLoginClick}
         />
         <InfoToolTip
         isOpen={isInfoToolTipOpen}

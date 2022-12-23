@@ -39,12 +39,12 @@ const handleOverlay = (e) => {
 
 const handleLoginClick = () => {
   onClose();
-  onRegisterClick();
+  onLoginClick();
 }
 
 const handleRegisterClick = () => {
   onClose();
-  onLoginClick();
+  onRegisterClick();
 }
   
 
@@ -75,7 +75,7 @@ const handleRegisterClick = () => {
             or {" "}
             <NavLink
               className="popup__redirect_link"
-              to={(name === 'login' ? handleRegisterClick : handleLoginClick)}
+              onClick={name === 'login' ? handleRegisterClick : handleLoginClick}
             >
              {title === 'Sign In' ? ' ' + 'Sign Up' : ' ' + 'Sign In'}
             </NavLink>

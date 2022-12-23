@@ -37,10 +37,10 @@ function RegisterPopup({isOpen, onClose, onLoginClick}) {
   return (
     <PopupWithForm
     name= "register"
-    title= "Sign Up"
     isOpen={isOpen}
     onClose={onClose}
-    onLoginClick={onLoginClick}>
+    onLoginClick = {onLoginClick}
+    title= "Sign Up" >
       <fieldset className="form__fieldset">
       <input
           type="email"
