@@ -58,4 +58,8 @@
         padding: 0;
     }
 
+    .header__logo-wrapper{
+        padding: 16px;
+    }
+
   }

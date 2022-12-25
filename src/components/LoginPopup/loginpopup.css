@@ -16,6 +16,7 @@
     text-align: left;
     padding-top: 36px;
     padding-left: 36px;
+    padding-bottom: 22px;
     max-width: 330px;
     margin: 0;
   }
@@ -33,13 +34,18 @@
     }
   
     .login__container {
-      width: 282px;
+      width: 100vw;
     }
   
     .login__close {
-      margin-bottom: 13.5px;
-      width: 26px;
-      height: 26px;
+      width: 24px;
+      height: 24px;
+      background-color: transparent;
+      background-image: url(../../images/Close_Icon.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      border: 0;
+      transition: opacity 0.8s linear 0.15s;
     }
   
     .login__form {
@@ -53,6 +59,9 @@
       padding-left: 22px;
       padding-top: 25px;
       margin: 0 auto;
+      margin-left: 0px;
+      margin-right: 0px;
+      padding-left: 17px;
     }
   }
   

@@ -64,12 +64,11 @@ const handleRegisterClick = () => {
             //onSubmit={onSubmit}
           >
             {children}
-            <span className="form__error">some error occured probably</span>
-            <fieldset className="form__fieldset">
+           
               <button className="form__button" type="submit">
                 { title }
               </button>
-            </fieldset>
+           
           </form>
           <div className="popup__redirect">
             or {" "}

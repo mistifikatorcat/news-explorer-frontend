@@ -52,6 +52,7 @@ function RegisterPopup({isOpen, onClose, onLoginClick}) {
           required
           /*onChange={handleChangeEmail}*/
         />
+         <span className="form__input-error"></span>
         <label className="form__input-label">Password</label>
         <input
           type="password"
@@ -62,6 +63,7 @@ function RegisterPopup({isOpen, onClose, onLoginClick}) {
           required
           /*onChange={handleChangePassword}*/
         />
+         <span className="form__input-error"></span>
         <label className="form__input-label">Username</label>
         <input
           type="username"
@@ -72,6 +74,7 @@ function RegisterPopup({isOpen, onClose, onLoginClick}) {
           required
           /*onChange={handleChangeUsername}*/
         />
+         <span className="form__input-error"></span>
       </fieldset>
     </PopupWithForm>
   );
