@@ -33,7 +33,7 @@ function MobileMenu({isLoggedIn, username, onLoginClick, signout, isOpen, onClos
               <div className="mobile-menu__links">
               <NavLink
             to={`${isHome ? '/saved-articles' : '/'}` }
-            className='mobile-menu__link'
+            className={`mobile-menu__link ${isHome ? ' ' : 'mobile-menu__link_black'}`}
           >
             {`${isHome ? 'Saved Articles' : 'Home' }`}
           </NavLink>
@@ -48,7 +48,6 @@ function MobileMenu({isLoggedIn, username, onLoginClick, signout, isOpen, onClos
           ) : (
             <>
           <button
-          to="/signin"
           className={'mobile-menu__button mobile-menu__login ' + `${isHome ? '' : "mobile-menu__button_black mobile-menu__login_black"}`}
           onClick={onLoginClick}
         >

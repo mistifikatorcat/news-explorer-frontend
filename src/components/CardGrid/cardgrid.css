@@ -49,6 +49,10 @@
   
 }
 
+.grid_saved{
+    padding: 32px 40px;
+}
+
 }
 
 @media screen and (max-width: 430px) {
@@ -56,6 +60,10 @@
         grid-template-columns: repeat(1,1fr);
         row-gap: 15px;
         padding: 0 16px;
+    }
+
+    .grid_saved{
+        padding: 24px 16px 13px;
     }
 
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes, useLocation, useHistory } from "react-router-dom";
+import { Route, Routes/*, useLocation, useHistory*/ } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
@@ -13,7 +13,7 @@ import { initialData } from '../../utils/initialData';
 
 
 function App(){
-    const [currentUser, setCurrentUser] = React.useState({});
+    // const [currentUser, setCurrentUser] = React.useState({});
     const [isLoggedIn, setIsLoggedIn] = React.useState(false);
     const [isLoading, setIsLoading] = React.useState(false);
     const [isSuccess, setIsSuccess] = React.useState("");

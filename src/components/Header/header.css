@@ -40,6 +40,10 @@
       padding-bottom: 48px;
     }
 
+    .header__white{
+        min-height: 80px;
+    }
+
     .header__nav-wrapper{
         max-height: 66px;
         padding-top: 14px;

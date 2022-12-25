@@ -62,7 +62,7 @@
 }
 
 .mobile-menu__link{
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
 font-size: 18px;
 font-weight: 500;
 line-height: 56px;
@@ -71,6 +71,10 @@ text-align: left;
 color: #fff;
 text-decoration: none;
 
+}
+
+.mobile-menu__link_black{
+    color: black;
 }
 
 .mobile-menu__button{

@@ -20,14 +20,14 @@ function Footer(){
             Home
         </NavLink>
         <a 
-        href="https://practicum.com"  target="_blank" className="footer__link">Practicum</a>
+        href="https://practicum.com"  target="_blank" className="footer__link" rel="noreferrer">Practicum</a>
         </div>
         <div className="footer__icons">
-        <a href="https://github.com/mistifikatorcat"  target="_blank" className="footer__icon">
-          <img className="footer__icon" src={github} />
+        <a href="https://github.com/mistifikatorcat"  target="_blank" className="footer__icon" rel="noreferrer">
+          <img className="footer__icon" src={github} alt='github' />
         </a>
-        <a href="https://facebook.com/mistifikatorcat"  target="_blank" className="footer__icon">
-          <img className="footer__icon" src={facebook} />
+        <a href="https://facebook.com/mistifikatorcat"  target="_blank" className="footer__icon" rel="noreferrer">
+          <img className="footer__icon" src={facebook} alt='facebook' />
         </a>
       </div>
       </nav>
