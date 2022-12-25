@@ -1,12 +1,12 @@
 import React from "react";
-import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
+import SavedHeader from '../SavedHeader/SavedHeader';
 import CardGrid from '../CardGrid/CardGrid';
 
 
 function SavedNews ({username, articles}) {
     return(
         <>
-        <SavedNewsHeader username={username} />
+        <SavedHeader username={username} />
         <CardGrid articles={articles} />
         </>
     )

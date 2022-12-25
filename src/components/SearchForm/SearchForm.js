@@ -2,13 +2,13 @@ import React from "react";
 import './searchForm.css';
 function SearchForm(){
     return(
-        <section className="searchForm">
-            <div className="searchForm__wrapper">
-                <h1 className="searchForm__title">What's going on in the world?</h1>
-                <p className="searchForm__subtitle">Find the latest news on any topic and save them in your personal account.</p>
-                <form className="searchForm__searchbar">
+        <section className="search-form">
+            <div className="search-form__wrapper">
+                <h1 className="search-form__title">What's going on in the world?</h1>
+                <p className="search-form__subtitle">Find the latest news on any topic and save them in your personal account.</p>
+                <form className="search-form__searchbar">
         <input
-          className="searchForm__input"
+          className="search-form__input"
           type="text"
           name="search-input"
           id="search-input"
@@ -16,7 +16,7 @@ function SearchForm(){
         //   onChange={onName}
           required
         />
-        <button type="submit" className="searchForm__submit">Search</button>
+        <button type="submit" className="search-form__submit">Search</button>
                 </form>
             </div>
         </section>

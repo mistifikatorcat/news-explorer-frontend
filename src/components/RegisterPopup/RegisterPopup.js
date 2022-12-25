@@ -42,6 +42,7 @@ function RegisterPopup({isOpen, onClose, onLoginClick}) {
     onLoginClick = {onLoginClick}
     title= "Sign Up" >
       <fieldset className="form__fieldset">
+      <label className="form__input-label">Email</label>
       <input
           type="email"
           name="email"
@@ -51,7 +52,7 @@ function RegisterPopup({isOpen, onClose, onLoginClick}) {
           required
           /*onChange={handleChangeEmail}*/
         />
-
+        <label className="form__input-label">Password</label>
         <input
           type="password"
           name="password"
@@ -61,7 +62,7 @@ function RegisterPopup({isOpen, onClose, onLoginClick}) {
           required
           /*onChange={handleChangePassword}*/
         />
-
+        <label className="form__input-label">Username</label>
         <input
           type="username"
           name="username"
