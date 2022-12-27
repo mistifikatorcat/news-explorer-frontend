@@ -38,6 +38,7 @@
 @media screen and (max-width: 1020px){
     .search-results{
         padding: 40px;
+        row-gap: 32px;
     }
 
     .search-results__title{

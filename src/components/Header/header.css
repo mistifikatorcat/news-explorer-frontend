@@ -37,7 +37,7 @@
     .header {
       background-position: center center;
       min-height: 400px;
-      padding-bottom: 48px;
+      /* padding-bottom: 48px; */
     }
 
     .header__white{
@@ -48,6 +48,10 @@
         max-height: 66px;
         padding-top: 14px;
         /* padding-bottom: 18.47px; */
+    }
+
+    .header__logo-wrapper{
+        padding-left: 40px;
     }
   }
 

@@ -36,6 +36,10 @@
         row-gap: 8px;
     }
 
+    .grid_saved{
+        padding: 32px 40px;
+    }
+
     /* .grid__gallery-card{
         max-height: 420px;
     } */
@@ -49,9 +53,6 @@
   
 }
 
-.grid_saved{
-    padding: 32px 40px;
-}
 
 }
 

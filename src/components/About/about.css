@@ -53,6 +53,7 @@
     .about{
         padding: 40px;
         column-gap: 32px;
+        padding-bottom: 61px;
     }
 
     .about__image-wrapper{

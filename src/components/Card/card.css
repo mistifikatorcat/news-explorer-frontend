@@ -193,16 +193,26 @@
   @media screen and (max-width: 430px) {
 
     .card{
-      min-height: 440px;
+      height: 440px;
       width: 288px;
     }
   
     .card__text {
-      -webkit-line-clamp: 10;
+      -webkit-line-clamp: 4;
     }
 
     .card__source{
       width: 256px;
+      margin-top: 29px;
+    }
+
+    .card__info{
+      min-height: 202px;
+      height: 202px;
+    }
+
+    .card__image{
+      height: 196px;
     }
 
   }
