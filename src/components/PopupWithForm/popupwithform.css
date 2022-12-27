@@ -212,6 +212,15 @@
     color: #ff0000;
     visibility: visible;
   }
+
+  .form__button-wrapper{
+    display: flex;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
   
   .form__button {
     border: 0;
@@ -267,7 +276,7 @@
   
     .form__button {
       padding: 14px 100px;
-      width: 238px;
+      width: 258px;
       height: 46px;
       font-size: 14px;
       line-height: 17px;
@@ -275,6 +284,7 @@
   
     .form__input {
       padding-bottom: 9px;
+      max-width: 288px;
     }
   }
   
@@ -331,10 +341,15 @@
       padding: 0 16px;
     }
 
+    
+    .form__button-wrapper{
+      justify-content: flex-start;
+    }
+
     .form__button{
       height: 64px;
       width: 288px;
-      margin: 0 auto;
+      margin: 0;
       padding: 20px 79px;
     }
     

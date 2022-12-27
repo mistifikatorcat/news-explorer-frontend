@@ -59,7 +59,7 @@
     .grid__gallery{
         grid-template-columns: repeat(1,1fr);
         row-gap: 15px;
-        padding: 0 16px;
+        padding: 0;
     }
 
     .grid_saved{

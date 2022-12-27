@@ -67,3 +67,23 @@
     }
 
   }
+
+  @media screen and (max-width: 336px) {
+
+  
+    .header{
+        padding: 0;
+    }
+
+    
+    .header__nav-wrapper{
+        padding: 16px;
+        margin: 0;
+        max-width: 288px;
+    }
+
+    .header__logo-wrapper{
+        padding: 0;
+    } 
+
+}

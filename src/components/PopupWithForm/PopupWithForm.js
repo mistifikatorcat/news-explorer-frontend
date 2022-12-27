@@ -64,10 +64,11 @@ const handleRegisterClick = () => {
             //onSubmit={onSubmit}
           >
             {children}
-           
+            <div className="form__button-wrapper">
               <button className="form__button" type="submit">
                 { title }
               </button>
+              </div>
            
           </form>
           <div className="popup__redirect">

@@ -128,7 +128,8 @@ margin: 32px auto 0;
 
   @media screen and (max-width: 430px) {
     .search-form{
-      max-width: 320px;
+      max-width: 288px;
+      padding: 30px 16px 32px; 
     }
 
     .search-form__title{

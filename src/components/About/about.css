@@ -115,6 +115,12 @@ text-align: left;
 
   @media screen and (max-width: 430px) {
 
+    .about{
+      max-width: 288px;
+      margin: 0;
+      padding: 40px 16px;
+    }
+
     .about__text-wrapper{
       width: 288px;
     }
