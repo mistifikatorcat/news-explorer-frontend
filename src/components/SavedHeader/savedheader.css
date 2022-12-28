@@ -63,6 +63,12 @@
     .saved-header__wrapper{
         padding-bottom: 32px;
     }
+
+    
+    .saved-header__title{
+        font-size: 30px;
+        line-height: 34px;
+    }
 }
 
 @media screen and (max-width: 430px) {

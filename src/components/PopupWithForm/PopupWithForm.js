@@ -74,7 +74,7 @@ const handleRegisterClick = () => {
           <div className="popup__redirect">
             or {" "}
             <NavLink
-              className="popup__redirect_link"
+              className="popup__redirect-link"
               onClick={name === 'login' ? handleRegisterClick : handleLoginClick}
             >
              {title === 'Sign In' ? ' ' + 'Sign Up' : ' ' + 'Sign In'}

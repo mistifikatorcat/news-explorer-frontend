@@ -16,7 +16,7 @@ function Header({isLoggedIn, username, onLoginClick, onMobileMenuClick}) {
 
 
   return (
-    <header className={` header ${isHome ? ' ' : 'header__white'}`}>
+    <header className={` header ${isHome ? ' ' : 'header_white'}`}>
       <div className="header__nav-wrapper">
         <div className="header__logo-wrapper">
         <NavLink to='/' className='header__logo'>

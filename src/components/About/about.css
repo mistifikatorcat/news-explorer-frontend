@@ -120,6 +120,14 @@ text-align: left;
       max-width: 288px;
       margin: 0;
       padding: 40px 16px;
+      padding-top: 32px;
+      padding-bottom: 0;
+    }
+
+    .about__image-wrapper{
+      margin: 0;
+      padding-left: 8px;
+      padding-right: 8px;
     }
 
     .about__text-wrapper{

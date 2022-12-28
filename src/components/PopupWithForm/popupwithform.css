@@ -120,9 +120,16 @@
     padding-top: 16px;
     padding-bottom: 28px;
     gap: 4px;
+    font-family: 'Inter', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: center;
+
   }
 
-  .popup__redirect_link{
+  .popup__redirect-link{
     color: #2F71E5;
   text-decoration: none;
   }

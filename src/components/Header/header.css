@@ -7,7 +7,7 @@
     padding: 0;
 }
 
-.header__white {
+.header_white {
     background: #FFF;
     min-height: 80px;
 }
@@ -40,7 +40,7 @@
       /* padding-bottom: 48px; */
     }
 
-    .header__white{
+    .header_white{
         min-height: 80px;
     }
 
