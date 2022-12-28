@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import './popupwithform.css';
 
 
@@ -77,7 +77,7 @@ const handleRegisterClick = () => {
               className="popup__redirect-link"
               onClick={name === 'login' ? handleRegisterClick : handleLoginClick}
             >
-             {title === 'Sign In' ? ' ' + 'Sign Up' : ' ' + 'Sign In'}
+             {title === 'Sign In' ? ' Sign Up' : ' Sign In'}
             </NavLink>
           </div>
         </div>
