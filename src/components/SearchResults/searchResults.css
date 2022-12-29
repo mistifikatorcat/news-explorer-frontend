@@ -55,4 +55,11 @@
       padding: 32px 16px;
     }
 
+    .search-results__more{
+      padding-top: 16px;
+      padding-bottom: 16px;
+      padding-right: 98px;
+      height: 56px;
+    }
+
 }

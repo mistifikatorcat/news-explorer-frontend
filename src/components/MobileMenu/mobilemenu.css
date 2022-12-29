@@ -19,7 +19,7 @@
     background-color: #1a1b22;
 }
 
-.mobile-menu__container_white{
+.mobile-menu__container_color_white{
     background-color: #fff;
 }
 
@@ -73,7 +73,7 @@ text-decoration: none;
 
 }
 
-.mobile-menu__link_black{
+.mobile-menu__link_color_black{
     color: black;
 }
 
@@ -90,6 +90,6 @@ text-decoration: none;
     font-size: 18px;
     line-height: 24px;
     text-align: center;
-    padding: 16px auto;
-    margin: 6px auto 24px 16px;
+    padding: 16px;
+    /* margin: 6px auto 24px 16px; */
 }

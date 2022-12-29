@@ -22,7 +22,7 @@ function MobileMenu({isLoggedIn, username, onLoginClick, signout, isOpen, onClos
 
     return(
         <section className={`mobile-menu ${enable}`}>
-            <div className={`mobile-menu__container ${isHome ? ' ' : 'mobile-menu__container_white'}`} onClick={handleOverlay}>
+            <div className={`mobile-menu__container ${isHome ? ' ' : 'mobile-menu__container_color_white'}`} onClick={handleOverlay}>
               <div className="mobile-menu__header">
               <img className="mobile-menu__logo" alt="News Explorer Logo" src={isHome ? logo_w : logo_b} />
             <button
@@ -33,7 +33,7 @@ function MobileMenu({isLoggedIn, username, onLoginClick, signout, isOpen, onClos
               <div className="mobile-menu__links">
               <NavLink
             to={`${isHome ? '/saved-articles' : '/'}` }
-            className={`mobile-menu__link ${isHome ? ' ' : 'mobile-menu__link_black'}`}
+            className={`mobile-menu__link ${isHome ? ' ' : 'mobile-menu__link_color_black'}`}
             onClick={onClose}
           >
             {`${isHome ? 'Saved Articles' : 'Home' }`}
@@ -49,7 +49,7 @@ function MobileMenu({isLoggedIn, username, onLoginClick, signout, isOpen, onClos
           ) : (
             <>
           <button
-          className={`mobile-menu__button ${isHome ? ' ' : "mobile-menu__button_black "}`}
+          className={`mobile-menu__button ${isHome ? ' ' : "mobile-menu__button_color_black "}`}
           onClick={onLoginClick}
         >
           Sign In

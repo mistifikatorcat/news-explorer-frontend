@@ -12,7 +12,7 @@ function Navigation({isLoggedIn, username, onLoginClick, onMobileMenuClick, sign
   const location = useLocation();
   const currentLocation = location.pathname;
   const isHome = currentLocation === '/';
-  const darkButton = currentLocation === '/saved-articles' ? '_dark' : '';
+  const darkButton = currentLocation === '/saved-articles' ? '_color_dark' : '';
 
   //const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -53,7 +53,7 @@ function Navigation({isLoggedIn, username, onLoginClick, onMobileMenuClick, sign
             <>
           <button
           to="/signin"
-          className={'navbar__button navbar__login ' + `${isHome ? '' : "navbar__button_black navbar__login_black"}`}
+          className={`navbar__button navbar__login ${isHome ? '' : "navbar__button_color_black navbar__login_color_black"}`}
           onClick={onLoginClick}
         >
           Sign In

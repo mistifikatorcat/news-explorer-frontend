@@ -14,14 +14,14 @@ import { initialData } from '../../utils/initialData';
 
 function App(){
     // const [currentUser, setCurrentUser] = React.useState({});
-    const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-    const [isLoading, setIsLoading] = React.useState(false);
-    const [isSuccess, setIsSuccess] = React.useState("");
+    const [isLoggedIn/*, setIsLoggedIn*/] = React.useState(false);
+    const [isLoading/*, setIsLoading*/] = React.useState(false);
+const [isSuccess/*, setIsSuccess*/] = React.useState("");
     const [isLoginPopupOpen, setIsLoginPopupOpen] = React.useState(false);
   const [isRegisterPopupOpen, setIsRegisterPopupOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [isInfoToolTipOpen, setIsInfoToolTipOpen] = React.useState(false);
-  const [articles, setArticles] = React.useState(initialData);
+  const [articles/*, setArticles*/] = React.useState(initialData);
 
   const username = 'Daniel';
 

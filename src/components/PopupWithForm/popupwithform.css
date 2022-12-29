@@ -291,7 +291,7 @@
   
     .form__input {
       padding-bottom: 9px;
-      max-width: 288px;
+      /* max-width: 288px; */
     }
   }
   
@@ -344,8 +344,12 @@
     }
 
     .form{
-      width: 100vw;
+      width: 288px;
       padding: 0 16px;
+    }
+
+    .form__input{
+      max-width: 288px;
     }
 
     
