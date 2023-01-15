@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import './popupwithform.css';
 
 
-export default function PopupWithForm({name, children, isOpen, onClose, onLoginClick, onRegisterClick, title}) {
+export default function PopupWithForm({name, children, isOpen, onClose, onLoginClick, onRegisterClick, title, onSubmit}) {
 
   
  const enable = `${isOpen ? "popup_enabled" : ""}`;
@@ -61,7 +61,7 @@ const handleRegisterClick = () => {
           <form
             className="form popup__form"
             id={`${name}Form`}
-            //onSubmit={onSubmit}
+            onSubmit={onSubmit}
           >
             {children}
             <div className="form__button-wrapper">

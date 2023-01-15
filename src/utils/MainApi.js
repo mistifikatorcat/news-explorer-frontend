@@ -59,11 +59,11 @@ export class MainApi {
   
   let baseUrl = 'http://localhost:3001' 
   // node_env === 'production'
-//   ? 'https://api.articlemonkeys.students.nomoredomainssbs.ru'
-//   : 'https://articlemonkeys.students.nomoredomainssbs.ru';
+//   ? 'https://newsxplorerdevgrafov.students.nomoredomainssbs.ru'
+//   : 'https://newsxplorerdevgrafov.students.nomoredomainssbs.ru';
   
   
-  //let baseUrl = 'https://api.articlemonkeys.students.nomoredomainssbs.ru';
+  //let baseUrl = 'https://newsxplorerdevgrafov.students.nomoredomainssbs.ru';
   
   
   const mainApi = new MainApi({

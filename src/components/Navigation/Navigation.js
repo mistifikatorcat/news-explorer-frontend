@@ -7,7 +7,7 @@ import burger_white from '../../images/burger.svg';
 import burger_black from '../../images/burger_b.svg';
 
 
-function Navigation({isLoggedIn, username, onLoginClick, onMobileMenuClick, signout}){
+function Navigation({isLoggedIn, username, onLoginClick, onMobileMenuClick, onLogout}){
 
   const location = useLocation();
   const currentLocation = location.pathname;
@@ -44,7 +44,7 @@ function Navigation({isLoggedIn, username, onLoginClick, onMobileMenuClick, sign
              Saved Articles
            </NavLink>
            <button className="navbar__button navbar__logout"
-            onClick={signout}>
+            onClick={onLogout}>
               {username}
               <img src={isHome ? signout_white : signout_black} alt="exit"/>
            </button>

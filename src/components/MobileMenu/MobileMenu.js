@@ -8,7 +8,7 @@ import signout_white from '../../images/signout_w.svg';
 
 
 
-function MobileMenu({isLoggedIn, username, onLoginClick, signout, isOpen, onClose}){
+function MobileMenu({isLoggedIn, username, onLoginClick, signout, isOpen, onClose, onLogout}){
     const enable = `${isOpen ? "mobile-menu_enabled" : ""}`;
     const location = useLocation();
     const currentLocation = location.pathname;
@@ -41,7 +41,7 @@ function MobileMenu({isLoggedIn, username, onLoginClick, signout, isOpen, onClos
           {isLoggedIn ? (
            <>
            <button className="mobile-menu__button mobile-menu__logout"
-            onClick={signout}>
+            onClick={onLogout}>
               {username}
               <img src={isHome ? signout_white : signout_black} alt="exit"/>
            </button>
