@@ -11,8 +11,9 @@ function LoginPopup({isOpen, onClose, onRegisterClick, onLogin}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = { email, password };
-    onLogin(formData);
+    const userData = { email, password };
+    console.log(userData);
+    onLogin({email, password});
   };
 
    const handleChange = (e) => {
@@ -29,7 +30,7 @@ function LoginPopup({isOpen, onClose, onRegisterClick, onLogin}) {
     const isButtonOn = Object.keys(errors).every(key => errors[key] === false & userData[key] !== undefined);
 
     setIsButtonOn(isButtonOn)
-   }, [formErrors])
+   }, [errors])
 
 
   return (
@@ -56,20 +57,20 @@ function LoginPopup({isOpen, onClose, onRegisterClick, onLogin}) {
           minLength="2"
           maxLength='40'
         />
-         <span className="form__input-error">{formErrors.email}</span>
+         <span className="form__input-error">{errors.email}</span>
         <label className="form__input-label">Password</label>
         <input
           type="password"
           name="password"
           className="form__input"
           placeholder="Password"
-          value={password}
+          value={userData.password}
           required
           onChange={handleChange}
           minLength='2'
           maxLength='64'
         />
-         <span className="form__input-error">{formErrors.password}</span>
+         <span className="form__input-error">{errors.password}</span>
     </PopupWithForm>
   );
 }

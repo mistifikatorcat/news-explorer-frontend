@@ -1,13 +1,17 @@
 import React from "react";
 import SavedHeader from '../SavedHeader/SavedHeader';
-import CardGrid from '../CardGrid/CardGrid';
+import SavedCardGrid from '../SavedCardGrid/SavedCardGrid';
 
 
-function SavedNews ({username, articles}) {
+function SavedNews ({savedArticles, onDelete}) {
     return(
         <>
-        <SavedHeader username={username} />
-        <CardGrid articles={articles} />
+        <SavedHeader savedArticles={savedArticles} />
+
+        <SavedCardGrid 
+        savedArticles={savedArticles}
+        onDelete={onDelete} />
+
         </>
     )
 

@@ -13,8 +13,9 @@ function RegisterPopup({isOpen, onClose, onLoginClick, onRegister}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = { email, password, username };
-    onRegister(formData);
+    const userData = { email, password, username };
+    console.log(userData);
+    onRegister({email, password, username});
   };
 
   const handleChange = (e) => {
@@ -31,7 +32,7 @@ function RegisterPopup({isOpen, onClose, onLoginClick, onRegister}) {
     const isButtonOn = Object.keys(errors).every(key => errors[key] === false & userData[key] !== undefined);
 
     setIsButtonOn(isButtonOn)
-   }, [formErrors])
+   }, [errors])
 
   return (
     <PopupWithForm
@@ -56,14 +57,14 @@ function RegisterPopup({isOpen, onClose, onLoginClick, onRegister}) {
           minLength="2"
           maxLength='40'
         />
-         <span className="form__input-error">{formErrors.email}</span>
+         <span className="form__input-error">{errors.email}</span>
         <label className="form__input-label">Password</label>
         <input
           type="password"
           name="password"
           className="form__input"
           placeholder="Password"
-          value={password}
+          value={userData.password}
           required
           onChange={handleChange}
           minLength='2'
@@ -81,7 +82,7 @@ function RegisterPopup({isOpen, onClose, onLoginClick, onRegister}) {
           minLength='2'
           maxLength='15'
         />
-         <span className="form__input-error">{formErrors.username}</span>
+         <span className="form__input-error">{errors.username}</span>
       </fieldset>
     </PopupWithForm>
   );

@@ -8,7 +8,7 @@ import signout_white from '../../images/signout_w.svg';
 
 
 
-function MobileMenu({isLoggedIn, username, onLoginClick, signout, isOpen, onClose, onLogout}){
+function MobileMenu({isLoggedIn, username, onLoginClick, onLogout, isOpen, onClose}){
     const enable = `${isOpen ? "mobile-menu_enabled" : ""}`;
     const location = useLocation();
     const currentLocation = location.pathname;

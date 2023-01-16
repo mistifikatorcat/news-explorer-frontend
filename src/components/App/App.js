@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes/*, useLocation, useHistory*/ } from "react-router-dom";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
@@ -8,6 +8,7 @@ import RegisterPopup from '../RegisterPopup/RegisterPopup';
 import SavedNews from '../SavedNews/SavedNews';
 import InfoToolTip from '../InfoToolTip/InfoToolTip';
 import MobileMenu from "../MobileMenu/MobileMenu";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 //api imports
@@ -17,11 +18,14 @@ import mainApi from "../../utils/MainApi";
 
 function App(){
 
+  const history = useNavigate();
+
   //authorization & context
 
-  const [username, setUsername] = React.useState({});
+  const [currentUser, setCurrentUser] = React.useState({});
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [isCheckingToken, setIsCheckingToken] = React.useState(true);
+  const [userData, setUserData] = React.useState({username: "Foma Kiniaev"})
 
   //search
 
@@ -43,7 +47,13 @@ function App(){
   const [foundArticles, setFoundArticles] = React.useState([]);
   const [keyword, setKeyword] = React.useState('');
 
-  
+
+  //errors
+
+  const [isServerError, setIsServerError] = React.useState(false);
+  const [isClientError, setIsClientError] = React.useState('');
+
+  //initial api effects
   //checking token
 
   React.useEffect(() => {
@@ -56,16 +66,15 @@ function App(){
           if (res._id) { //(res._id)
             setIsLoggedIn(true);
             setUserData({ email: res.email });
-            history.push("/");
           } else {
             localStorage.removeItem("jwt");
-            history.push("/signin");
+            setIsLoginPopupOpen(true);
             setIsLoggedIn(false);
           }
         })
         .catch((err) => {
           console.log(err);
-          history.push("/signin");
+          setIsLoginPopupOpen(true);
           setIsLoggedIn(false);
           localStorage.removeItem("jwt");
 
@@ -76,28 +85,43 @@ function App(){
     }
   }, []);
 
-//popups
+  //getting user info
 
-  function closeAllPopups() {
-    setIsLoginPopupOpen(false);
-    setIsRegisterPopupOpen(false);
-    setIsInfoToolTipOpen(false);
-    setIsMobileMenuOpen(false);
-  }
+  React.useEffect(() => {
+    const token = localStorage.getItem('jwt');
+    if (token) {
+      mainApi
+        .getUserInfo(token)
+        .then(res => {
+          console.log('getting user info ', res);
+          setCurrentUser(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [isLoggedIn]);
 
-    function handleLoginClick() {
-        setIsLoginPopupOpen(true);
-      }
-    
-      function handleRegisterClick() {
-        setIsRegisterPopupOpen(true);
-      }
+  //getting info on user's saved articles
 
-      function handleMobileMenuClick(){
-        setIsMobileMenuOpen(true);
-      }
+  React.useEffect(() => {
+    const token = localStorage.getItem('jwt');
+    if (token && currentUser._id) {
+      mainApi
+        .getArticles() //(token)?
+        .then((res) => {
+          console.log('getting saved articles info ', res);
+          setSavedArticles(res || []);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [currentUser]);
 
-//authorization
+  
+//handlers  
+//authorization handlers
 
 function handleRegister({ username, email, password }) {
   auth
@@ -115,6 +139,11 @@ function handleRegister({ username, email, password }) {
     .catch((err) => {
       console.log(err);
       console.log('user not added')
+      if (err === 'Error 409')
+      setIsClientError('This email or username is in use ');
+      else{
+        setIsClientError('Something else wrong on handleRegister function ');
+      }
       setIsSuccess("fail");
     })
 }
@@ -126,7 +155,7 @@ function handleLogin({ email, password }) {
       if (res.token) {
         setIsLoggedIn(true);
         setUserData({ email });
-        setUsername(res.user);
+        setCurrentUser(res.user);
         localStorage.setItem('jwt', res.token);
         //setToken(res.token);
         history.push("/");
@@ -137,6 +166,11 @@ function handleLogin({ email, password }) {
     })
     .catch((err) => {
       console.log(err);
+      if (err === 'Error 400')
+      setIsClientError('Wrong Email or Password ');
+      else{
+        setIsClientError('Something else wrong on handleLogin function ');
+      }
       setIsSuccess("fail");
     })
     .finally(() => {
@@ -146,7 +180,7 @@ function handleLogin({ email, password }) {
 
 function signout() {
   setIsLoggedIn(false);
-  setUsername({});
+  setCurrentUser({});
   localStorage.removeItem('jwt');
   setIsLoginPopupOpen(true);
 }
@@ -159,6 +193,7 @@ function signout() {
 function handleSearch(keyword){
   setIsSearching(true);
   setIsLoading(true);
+  setIsServerError(false);
   newsApi.getArticles(keyword)
   .then((res) => {
     if (res.articles.length === 0)
@@ -174,6 +209,7 @@ function handleSearch(keyword){
   })
   .catch((err) => {
     console.log(err);
+    setIsServerError(true);
   })
   .finally(() => {
     setIsLoading(false);
@@ -181,9 +217,61 @@ function handleSearch(keyword){
 }
 
 
+//save
+
+function handleSave(article) {
+  mainApi.saveArticle(article) //do I need token there?
+  .then((savedArticle) => {
+    setSavedArticles([savedArticle, ...savedArticles])
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+}
+
+//remove from saved
+
+function handleRemove(id) { 
+  mainApi.deleteArticle(id)
+    .then(() => {
+      const updatedList = savedArticles.filter((currentArticle) => {
+        return currentArticle._id !== id;
+      })
+      setSavedArticles(updatedList)
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+}
+
+
+
+//popups
+
+function closeAllPopups() {
+  setIsLoginPopupOpen(false);
+  setIsRegisterPopupOpen(false);
+  setIsInfoToolTipOpen(false);
+  setIsMobileMenuOpen(false);
+}
+
+  function handleLoginClick() {
+      setIsLoginPopupOpen(true);
+      setIsClientError('');
+    }
+  
+    function handleRegisterClick() {
+      setIsClientError('');
+      setIsRegisterPopupOpen(true);
+    }
+
+    function handleMobileMenuClick(){
+      setIsMobileMenuOpen(true);
+    }
+
 
     return(
-        <CurrentUserContext.Provider value={username}>
+        <CurrentUserContext.Provider value={currentUser}>
         <div className="app">
         <MobileMenu
         isOpen={isMobileMenuOpen}
@@ -194,7 +282,7 @@ function handleSearch(keyword){
         />
         <Header 
            isLoggedIn={isLoggedIn}
-           username={username}
+           username={userData.username}
            onLoginClick={handleLoginClick}
            onRegisterClick={handleRegisterClick}
            onMobileMenuClick={handleMobileMenuClick}
@@ -206,35 +294,45 @@ function handleSearch(keyword){
           <Route 
           path='/saved-articles'
           element={
+            <ProtectedRoute isLoggedIn={isLoggedIn}>
             <SavedNews
-            username={username}
             savedArticles={savedArticles}
+            onDelete={handleRemove}
             />
+            </ProtectedRoute>
           }
           />
           <Route
           path='/'
           element={
           <Main
+          isSearching={isSearching}
           isCardsFound={isCardsFound}
+          isLoggedIn={isLoggedIn}
           isLoading={isLoading}
-          savedArticles={savedArticles}
           foundArticles={foundArticles}
           keyword={keyword}
+          setKeyword={setKeyword}
+          onSave={handleSave}
+          onDelete={handleRemove}
+          isServerError={isServerError}
           />
           } />
+          <Route path="*" element={<Navigate to='/' />} />
         </Routes>
         <LoginPopup
             isOpen={isLoginPopupOpen}
             onClose={closeAllPopups}
             onRegisterClick={handleRegisterClick}
             onLogin={handleLogin}
+            isClientError={isClientError}
         />
         <RegisterPopup
         isOpen={isRegisterPopupOpen}        
         onClose={closeAllPopups}
         onLoginClick={handleLoginClick}
         onRegister={handleRegister}
+        isClientError={isClientError}
         />
         <InfoToolTip
         isOpen={isInfoToolTipOpen}
