@@ -35,7 +35,6 @@ function App(){
 
   //popups
 
-  const [isSuccess, setIsSuccess] = React.useState("");
   const [isLoginPopupOpen, setIsLoginPopupOpen] = React.useState(false);
   const [isRegisterPopupOpen, setIsRegisterPopupOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
@@ -127,13 +126,12 @@ function handleRegister({ username, email, password }) {
   auth
     .register(username, email, password)
     .then((res) => {
-      if (res._id) { 
-        setIsSuccess("success");
+      if (res) { 
         closeAllPopups();
         console.log('user added')
         setIsInfoToolTipOpen(true);
       } else {
-        setIsSuccess("fail");
+        setIsInfoToolTipOpen(false);
       }
     })
     .catch((err) => {
@@ -144,7 +142,7 @@ function handleRegister({ username, email, password }) {
       else{
         setIsClientError('Something else wrong on handleRegister function ');
       }
-      setIsSuccess("fail");
+      setIsInfoToolTipOpen(false);
     })
 }
 
@@ -159,10 +157,7 @@ function handleLogin({ email, password }) {
         localStorage.setItem('jwt', res.token);
         //setToken(res.token);
         history.push("/");
-      } else {
-        setIsSuccess("fail");
-        
-      }
+      } 
     })
     .catch((err) => {
       console.log(err);
@@ -171,7 +166,6 @@ function handleLogin({ email, password }) {
       else{
         setIsClientError('Something else wrong on handleLogin function ');
       }
-      setIsSuccess("fail");
     })
     .finally(() => {
       setIsCheckingToken(false);
@@ -337,7 +331,7 @@ function closeAllPopups() {
         <InfoToolTip
         isOpen={isInfoToolTipOpen}
         onClose={closeAllPopups}
-        status={isSuccess}
+        onLoginClick={handleLoginClick}
       />
         <Footer />
         </div>
