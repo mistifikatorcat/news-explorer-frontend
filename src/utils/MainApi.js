@@ -11,14 +11,14 @@ export class MainApi {
       ;
     }
   
-    getUserInfo() {
-      return fetch(`${this._baseUrl}/users/me`, {
-        headers: {
-          "Content-Type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("jwt")}`,
-        }
-      }).then(this._respond);
-    }
+    // getUserInfo() {
+    //   return fetch(`${this._baseUrl}/users/me`, {
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       authorization: `Bearer ${localStorage.getItem("jwt")}`,
+    //     }
+    //   }).then(this._respond);
+    // }
   
     getArticles() {
       return fetch(`${this._baseUrl}/articles`, {

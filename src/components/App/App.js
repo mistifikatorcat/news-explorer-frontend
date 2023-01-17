@@ -64,7 +64,7 @@ function App(){
           console.log('checking token ', res);
           if (res._id) { //(res._id)
             setIsLoggedIn(true);
-            setUserData({ email: res.email });
+            setUserData({ username: res.username });
           } else {
             localStorage.removeItem("jwt");
             setIsLoginPopupOpen(true);
@@ -86,20 +86,20 @@ function App(){
 
   //getting user info
 
-  React.useEffect(() => {
-    const token = localStorage.getItem('jwt');
-    if (token) {
-      mainApi
-        .getUserInfo(token)
-        .then(res => {
-          console.log('getting user info ', res);
-          setCurrentUser(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  }, [isLoggedIn]);
+  // React.useEffect(() => {
+  //   const token = localStorage.getItem('jwt');
+  //   if (token) {
+  //     mainApi
+  //       .getUserInfo(token)
+  //       .then(res => {
+  //         console.log('getting user info ', res);
+  //         setCurrentUser(res);
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   }
+  // }, [isLoggedIn]);
 
   //getting info on user's saved articles
 

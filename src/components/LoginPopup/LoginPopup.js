@@ -4,33 +4,45 @@ import './loginpopup.css';
 //import { Link } from "react-router-dom";
 
 function LoginPopup({isOpen, onClose, onRegisterClick, onLogin}) {
-  const [userData, setUserData] = React.useState({});
-  const [errors, setErrors] = React.useState({email: false, password: false});
-  const [isButtonOn, setIsButtonOn] = React.useState(false);
+
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  // const [userData, setUserData] = React.useState({});
+  // const [errors, setErrors] = React.useState({email: false, password: false});
+  // const [isButtonOn, setIsButtonOn] = React.useState(false);
 
 
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const userData = { email, password };
-    console.log(userData);
-    onLogin({email, password});
+  
+    onLogin(userData);
   };
 
-   const handleChange = (e) => {
-    const input = e.target;
-     const {name, value} = e.target;
-     const isValid = input.validity.valid;
-     setUserData({...userData, [name]: value});
-     setErrors({...errors, [name]: isValid ? false : input.validationMessage})
-   };
+   const handleChangeEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleChangePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  //  const handleChange = (e) => {
+  //   const input = e.target;
+  //    const {name, value} = e.target;
+  //    const isValid = input.validity.valid;
+  //    setUserData({...userData, [name]: value});
+  //    setErrors({...errors, [name]: isValid ? false : input.validationMessage})
+  //  };
 
   
 
-   React.useEffect(() => {
-    const isButtonOn = Object.keys(errors).every(key => errors[key] === false & userData[key] !== undefined);
+  //  React.useEffect(() => {
+  //   const isButtonOn = Object.keys(errors).every(key => errors[key] === false & userData[key] !== undefined);
 
-    setIsButtonOn(isButtonOn)
-   }, [errors])
+  //   setIsButtonOn(isButtonOn)
+  //  }, [errors])
 
 
   return (
@@ -40,7 +52,7 @@ function LoginPopup({isOpen, onClose, onRegisterClick, onLogin}) {
     onClose={onClose}
     onSubmit = {handleSubmit}
     onRegisterClick = {onRegisterClick}
-    isButtonOn = {isButtonOn}
+    // isButtonOn = {isButtonOn}
     title= "Sign In"
     
   >
@@ -51,26 +63,26 @@ function LoginPopup({isOpen, onClose, onRegisterClick, onLogin}) {
           name="email"
           className="form__input"
           placeholder="Enter Email"
-          value={userData.email}
+          value={email}
           required
-          onChange={handleChange}
+          onChange={handleChangeEmail}
           minLength="2"
           maxLength='40'
         />
-         <span className="form__input-error">{errors.email}</span>
+         {/* <span className="form__input-error">{errors.email}</span> */}
         <label className="form__input-label">Password</label>
         <input
           type="password"
           name="password"
           className="form__input"
           placeholder="Password"
-          value={userData.password}
+          value={password}
           required
-          onChange={handleChange}
+          onChange={handleChangePassword}
           minLength='2'
           maxLength='64'
         />
-         <span className="form__input-error">{errors.password}</span>
+         {/* <span className="form__input-error">{errors.password}</span> */}
     </PopupWithForm>
   );
 }

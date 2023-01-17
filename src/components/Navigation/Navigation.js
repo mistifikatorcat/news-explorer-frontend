@@ -5,9 +5,12 @@ import signout_black from '../../images/signout_b.svg';
 import signout_white from '../../images/signout_w.svg';
 import burger_white from '../../images/burger.svg';
 import burger_black from '../../images/burger_b.svg';
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 
 function Navigation({isLoggedIn, username, onLoginClick, onMobileMenuClick, onLogout}){
+
+  const currentUser = React.useContext(CurrentUserContext);
 
   const location = useLocation();
   const currentLocation = location.pathname;
@@ -45,7 +48,7 @@ function Navigation({isLoggedIn, username, onLoginClick, onMobileMenuClick, onLo
            </NavLink>
            <button className="navbar__button navbar__logout"
             onClick={onLogout}>
-              {username}
+              {currentUser.username}
               <img src={isHome ? signout_white : signout_black} alt="exit"/>
            </button>
            </>
