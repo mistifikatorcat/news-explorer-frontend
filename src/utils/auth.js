@@ -18,14 +18,14 @@ const fetcher = (url, headers) => {
   );
 };
 
-export const register = (email, password) => {
+export const register = (username, email, password) => {
   return fetcher(`${BASE_URL}/signup`, {
     method: "POST",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ email, password }),
+    body: JSON.stringify({ username, email, password }),
   });
 };
 
