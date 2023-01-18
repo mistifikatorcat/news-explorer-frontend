@@ -5,12 +5,11 @@ import signout_black from '../../images/signout_b.svg';
 import signout_white from '../../images/signout_w.svg';
 import burger_white from '../../images/burger.svg';
 import burger_black from '../../images/burger_b.svg';
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+
 
 
 function Navigation({isLoggedIn, username, onLoginClick, onMobileMenuClick, onLogout}){
 
-  const currentUser = React.useContext(CurrentUserContext);
 
   const location = useLocation();
   const currentLocation = location.pathname;
@@ -31,12 +30,12 @@ function Navigation({isLoggedIn, username, onLoginClick, onMobileMenuClick, onLo
           </NavLink>
 
           
-          <NavLink
+          {/* <NavLink
             to= "/saved-articles" 
             className={`${!isHome ? 'navbar__link_current' : ''} navbar__link navbar__link` + darkButton} //if not work try ? :
           >
             Saved News
-          </NavLink>
+          </NavLink> */}
 
           {isLoggedIn ? (
            <>
@@ -46,9 +45,9 @@ function Navigation({isLoggedIn, username, onLoginClick, onMobileMenuClick, onLo
            >
              Saved Articles
            </NavLink>
-           <button className="navbar__button navbar__logout"
+            <button className={`${isHome? "navbar__button navbar__logout" : 'navbar__button navbar__logout navbar__button_color_black navbar__logout_color_black'}`}
             onClick={onLogout}>
-              {currentUser.username}
+              {username}
               <img src={isHome ? signout_white : signout_black} alt="exit"/>
            </button>
            </>

@@ -3,10 +3,10 @@ import SavedHeader from '../SavedHeader/SavedHeader';
 import SavedCardGrid from '../SavedCardGrid/SavedCardGrid';
 
 
-function SavedNews ({savedArticles, onDelete}) {
+function SavedNews ({savedArticles, onDelete, username}) {
     return(
         <>
-        <SavedHeader savedArticles={savedArticles} />
+        <SavedHeader savedArticles={savedArticles} username={username} />
 
         <SavedCardGrid 
         savedArticles={savedArticles}

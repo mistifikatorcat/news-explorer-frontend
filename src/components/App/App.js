@@ -65,6 +65,7 @@ function App(){
           if (res._id) { //(res._id)
             setIsLoggedIn(true);
             setUserData({ username: res.username });
+            console.log('res.username: ' + res.username + ' current userdata ' + userData);
           } else {
             localStorage.removeItem("jwt");
             setIsLoginPopupOpen(true);
@@ -290,6 +291,7 @@ function closeAllPopups() {
           element={
             <ProtectedRoute isLoggedIn={isLoggedIn}>
             <SavedNews
+            username={userData.username}
             savedArticles={savedArticles}
             onDelete={handleRemove}
             />

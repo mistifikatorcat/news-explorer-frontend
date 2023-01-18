@@ -44,6 +44,8 @@ color: #000;
     cursor: pointer;
 }
 
+
+
 .navbar__button_color_black{
     border: 1px solid #000;
 }
@@ -55,6 +57,11 @@ color: #000;
 .navbar__logout{
     display: flex;
     column-gap: 15px;
+    align-items: center;
+}
+
+.navbar__logout_color_black{
+    color: #000;
 }
 
 .navbar__burger{
