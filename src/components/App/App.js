@@ -185,15 +185,15 @@ function signout() {
 
 //search
 
-function handleSearch({search}){
-if (search !== ''){
+function handleSearch({searchTerm}){
+if (searchTerm !== ''){
   setIsLoading(true);
 
-  newsApi.getArticles(search)
+  newsApi.getArticles(searchTerm)
     .then((res) => {
-      console.log('getArticles on handleSearch', search)
+      console.log('getArticles on handleSearch', searchTerm)
       if (res.articles) {
-        setSearchData({search})
+        setSearchData({searchTerm})
         articles.current = res.articles;
         setFoundArticles(articles.current.slice(0, 3));
       }
@@ -304,7 +304,7 @@ function closeAllPopups() {
           isLoading={isLoading}
           foundArticles={foundArticles}
           savedArticles={savedArticles}
-          searchData={searchData.search}
+          searchData={searchData}
           setSearchData={setSearchData}
           onSave={handleSave}
           onDelete={handleRemove}

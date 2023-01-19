@@ -2,18 +2,18 @@ import React from "react";
 import './searchForm.css';
 function SearchForm({onSearch}){
 
-  const [search, setSearch] = React.useState("");
+  const [searchTerm, setSearchTerm] = React.useState("");
 
 
   function handleSubmit(e){
     e.preventDefault(e);
-   const searchData = { search };
+   const searchData = { searchTerm };
 
    onSearch(searchData);
   }
 
   function handleChange(e){
-    setSearch(e.target.value);
+    setSearchTerm(e.target.value);
   }
 
     return(
@@ -29,7 +29,7 @@ function SearchForm({onSearch}){
           id="search-input"
           placeholder="Enter Topic"
           onChange={handleChange}
-          value={search}
+          value={searchTerm}
           required
         />
         <button type="submit" className="search-form__submit">Search</button>
