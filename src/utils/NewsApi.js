@@ -22,9 +22,9 @@ class NewsApi{
         return dateRange;
     }
 
-    getArticles(keyword){
+    getArticles(search){
         const getWeek = this._getWeek();
-        return fetch(`${this.url}?q=${keyword}&apiKey=${this.key}&from=${getWeek}&to=${this.time}&pageSize=100`)
+        return fetch(`${this.url}?q=${search}&apiKey=${this.key}&from=${getWeek}&to=${this.time}&pageSize=100`)
         .then(this._respond);
     }
 

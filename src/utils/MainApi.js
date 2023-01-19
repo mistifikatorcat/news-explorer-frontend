@@ -20,7 +20,7 @@ export class MainApi {
     //   }).then(this._respond);
     // }
   
-    getArticles() {
+    getSavedArticles() {
       return fetch(`${this._baseUrl}/articles`, {
         headers: {
           "Content-Type": "application/json",

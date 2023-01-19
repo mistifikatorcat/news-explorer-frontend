@@ -6,19 +6,20 @@ import About from "../About/About";
 import NothingFound from "../NothingFound/NothingFound";
 
 
-function Main({ isLoading, isSearching,  isLoggedIn, foundArticles, keyword, setKeyword, onSave, onDelete, isServerError}){
+function Main({ isLoading, isSearching,  isLoggedIn, foundArticles, savedArticles, searchData, setSearchData, onSave, onDelete, isServerError}){
     
     return(
         <main>
-           {(isLoading) && (isSearching) (
+      
             <PreLoader />
-           )}
+         
            {foundArticles.length !== 0 ? (
            <SearchResults 
+           savedArticles={savedArticles}
            foundArticles={foundArticles}
           isLoggedIn={isLoggedIn}
-           keyword={keyword}
-          setKeyword={setKeyword}
+           searchData={searchData}
+          setSearchData={setSearchData}
           onSave={onSave}
            onDelete={onDelete} />
            ) : (

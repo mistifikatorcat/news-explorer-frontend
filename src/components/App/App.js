@@ -31,7 +31,8 @@ function App(){
 
   const [isLoading, setIsLoading] = React.useState(false);
   const [isSearching, setIsSearching] = React.useState(false);
-  const [isCardsFound, setIsCardsFound] = React.useState(false);
+  const [foundArticles, setFoundArticles] = React.useState([]);
+  const articles = React.useRef([]);
 
   //popups
 
@@ -43,8 +44,7 @@ function App(){
   //articles
 
   const [savedArticles, setSavedArticles] = React.useState([]);
-  const [foundArticles, setFoundArticles] = React.useState([]);
-  const [keyword, setKeyword] = React.useState('');
+  const [searchData, setSearchData] = React.useState({search: 'Economics'});
 
 
   //errors
@@ -108,7 +108,7 @@ function App(){
     const token = localStorage.getItem('jwt');
     if (token && currentUser._id) {
       mainApi
-        .getArticles() //(token)?
+        .getSavedArticles() //(token)?
         .then((res) => {
           console.log('getting saved articles info ', res);
           setSavedArticles(res || []);
@@ -185,30 +185,26 @@ function signout() {
 
 //search
 
-function handleSearch(keyword){
-  setIsSearching(true);
+function handleSearch({search}){
+if (search !== ''){
   setIsLoading(true);
-  setIsServerError(false);
-  newsApi.getArticles(keyword)
-  .then((res) => {
-    if (res.articles.length === 0)
-    {
-      setIsCardsFound(false)
-    }
-    else
-    {
-      setFoundArticles(res.articles);
-      setKeyword(keyword);
-      setIsCardsFound(true);
-    }
-  })
-  .catch((err) => {
-    console.log(err);
-    setIsServerError(true);
-  })
-  .finally(() => {
-    setIsLoading(false);
-  })
+
+  newsApi.getArticles(search)
+    .then((res) => {
+      console.log('getArticles on handleSearch', search)
+      if (res.articles) {
+        setSearchData({search})
+        articles.current = res.articles;
+        setFoundArticles(articles.current.slice(0, 3));
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      setIsLoading(false);
+    })
+}
 }
 
 
@@ -283,6 +279,7 @@ function closeAllPopups() {
            onMobileMenuClick={handleMobileMenuClick}
            onLogout={signout}
            onSearch={handleSearch}
+           
            isSearching={isSearching}
         />
         <Routes>
@@ -303,12 +300,12 @@ function closeAllPopups() {
           element={
           <Main
           isSearching={isSearching}
-          isCardsFound={isCardsFound}
           isLoggedIn={isLoggedIn}
           isLoading={isLoading}
           foundArticles={foundArticles}
-          keyword={keyword}
-          setKeyword={setKeyword}
+          savedArticles={savedArticles}
+          searchData={searchData.search}
+          setSearchData={setSearchData}
           onSave={handleSave}
           onDelete={handleRemove}
           isServerError={isServerError}

@@ -6,7 +6,7 @@ import { nanoid } from "nanoid";
 
 
 
-function CardGrid({foundArticles,  isLoggedIn, onSave, onDelete}){
+function CardGrid({foundArticles, savedArticles, isLoggedIn, onSave, onDelete}){
 
   const [cardsShown, setCardsShown] = React.useState(3);
 
@@ -15,14 +15,21 @@ function CardGrid({foundArticles,  isLoggedIn, onSave, onDelete}){
       <>
         <section className='grid'>
             <ul className="grid__gallery">
-            {foundArticles.slice(0, cardsShown).map((card) => (
+            {foundArticles.slice(0, cardsShown).map((card, i) => (
             <Card
               key={card._id || nanoid()}
               article={card}
+              image={card.urlToImage}
+              date={card.publishedAt}
+              title={card.title}
+              text={card.text}
+              source={card.source.name}
+              keyword={card.keyword}
+              link={card.link}
             isLoggedIn={isLoggedIn}
             onDelete={onDelete}
             onSave={onSave}
-    
+            savedArticles={savedArticles}
             />
           )
           )} 

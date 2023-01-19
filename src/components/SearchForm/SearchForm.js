@@ -1,14 +1,15 @@
 import React from "react";
 import './searchForm.css';
-function SearchForm({setKeyword, searchArticles}){
+function SearchForm({onSearch}){
 
   const [search, setSearch] = React.useState("");
 
 
   function handleSubmit(e){
     e.preventDefault(e);
-    setKeyword(search);
-    searchArticles(search);
+   const searchData = { search };
+
+   onSearch(searchData);
   }
 
   function handleChange(e){
@@ -28,7 +29,7 @@ function SearchForm({setKeyword, searchArticles}){
           id="search-input"
           placeholder="Enter Topic"
           onChange={handleChange}
-          value={search || ''}
+          value={search}
           required
         />
         <button type="submit" className="search-form__submit">Search</button>

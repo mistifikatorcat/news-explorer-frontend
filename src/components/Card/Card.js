@@ -7,7 +7,15 @@ function Card({
  article,
  isLoggedIn,
  onSave,
- onDelete
+ onDelete,
+ savedArticles,
+ image,
+ date,
+ title,
+ text,
+ source,
+ keyword,
+ link
  }){
 
   const location = useLocation();
@@ -16,19 +24,49 @@ function Card({
   const currentUser = React.useContext(CurrentUserContext);
 
   const [isCardSaved, setIsCardSaved] = React.useState(false);
+  const [renderedCard, setRenderedCard] = React.useState({});
 
 
   React.useEffect(() => {
-   (currentUser.savedArticles && currentUser.savedArticles.some((card) => card.link === article.url))
-    && setIsCardSaved(true);
-  }, [])
+    if (isSavedPage){
+      setRenderedCard(article)
+    }
+    else{
+      setRenderedCard({
+        image: article.urlToImage,
+        date: article.publishedAt,
+        title: article.title,
+        text: article.text,
+        source: article.source,
+        keyword: article.keyword,
+        link: article.link
+      })
+    }
+  }, [article, savedArticles])
 
-  const getDate = () => {
-    const date = new Date(article.publishedAt || article.date)
+
+  React.useEffect(() => {
+   if (!isSavedPage){
+    let save = false;
+    savedArticles.map((card) => {
+      if (card.link === renderedCard.link){
+        save = true;
+      }
+      else{
+        save = false;
+      }
+    })
+    console.log( 'save card ' + save)
+    setIsCardSaved(save);
+   }
+  }, [renderedCard, savedArticles])
+
+  const getDate = (date) => {
+    const articleDate = new Date(date)
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    const month = months[date.getMonth()];
-    const day = date.getDay();
-    const year = date.getFullYear();
+    const month = months[articleDate.getMonth()];
+    const day = articleDate.getDay();
+    const year = articleDate.getFullYear();
     const fullDate = month + ' ' + day + ',' + year;
     return fullDate;
   }
@@ -51,11 +89,11 @@ function Card({
 
     return(
         <li className="grid__gallery-card">
-          <a className="grid__gallery-card-link" href={article.url || article.link} target='_blank'>
+          <a className="grid__gallery-card-link" href={link} target='_blank'>
             <div className="card">
             <div
           className="card__image"
-          style={{backgroundImage: `url(${article.image || article.urlToImage})`}}
+          style={{backgroundImage: `url(${image})`}}
         />
         {isSavedPage ? (
           <button
@@ -97,15 +135,15 @@ function Card({
 
         {currentLocation === '/saved-articles' && (
           <div className="card__hint card__hint-keyword">
-            <p className="card__hint-text">{article.keyword}</p>
+            <p className="card__hint-text">{keyword}</p>
             </div>
         )}
         
         <div className="card__info">
           <p className="card__date">{getDate()}</p>
-          <h3 className="card__title">{article.title}</h3>
-          <p className="card__text">{article.text || article.description}</p>
-          <p className="card__source">{article.source || article.source.name}</p>
+          <h3 className="card__title">{title}</h3>
+          <p className="card__text">{text}</p>
+          <p className="card__source">{source}</p>
         </div>
             </div>
             </a>

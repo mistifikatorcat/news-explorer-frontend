@@ -32,7 +32,9 @@ function Header({isLoggedIn, username, onLoginClick, onMobileMenuClick, onLogout
         />
       </div>
       {isHome ? (
-        <SearchForm />
+        <SearchForm 
+        onSearch={onSearch}
+        />
       ) :
       <></>}
     </header>
