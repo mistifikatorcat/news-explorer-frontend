@@ -10,7 +10,6 @@ function Card({
  onDelete,
  savedArticles,
  image,
- date,
  title,
  text,
  source,
@@ -61,8 +60,8 @@ function Card({
    }
   }, [renderedCard, savedArticles])
 
-  const getDate = (date) => {
-    const articleDate = new Date(date)
+  const getDate = () => {
+    const articleDate = new Date(article.publishedAt)
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     const month = months[articleDate.getMonth()];
     const day = articleDate.getDay();
