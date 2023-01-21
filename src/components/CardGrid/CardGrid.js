@@ -24,7 +24,7 @@ function CardGrid({foundArticles, savedArticles, isLoggedIn, onSave, onDelete}){
               title={card.title}
               text={card.text}
               source={card.source.name}
-              keyword={card.keyword}
+              keyword={card.source.name}
               link={card.link}
             isLoggedIn={isLoggedIn}
             onDelete={onDelete}

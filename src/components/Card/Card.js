@@ -37,7 +37,6 @@ function Card({
         title: article.title,
         text: article.text,
         source: article.source,
-        keyword: article.keyword,
         link: article.link
       })
     }

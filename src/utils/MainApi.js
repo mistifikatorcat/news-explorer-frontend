@@ -29,14 +29,14 @@ export class MainApi {
       }).then(this._respond);
     }
   
-    saveArticle(article) {
+    saveArticle(article, keyword) {
         return fetch(`${this._baseUrl}/articles/`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             authorization: `Bearer ${localStorage.getItem("jwt")}`,
           },
-          body: JSON.stringify(article),
+          body: JSON.stringify(article, keyword),
         }).then(this._respond);;
       }
 

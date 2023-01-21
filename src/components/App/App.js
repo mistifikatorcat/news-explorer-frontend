@@ -45,6 +45,7 @@ function App(){
 
   const [savedArticles, setSavedArticles] = React.useState([]);
   const [searchData, setSearchData] = React.useState({search: 'Economics'});
+  const [keyword, setKeyword] = React.useState('');
 
 
   //errors
@@ -106,7 +107,7 @@ function App(){
 
   React.useEffect(() => {
     const token = localStorage.getItem('jwt');
-    if (token && currentUser._id) {
+    if (token) {
       mainApi
         .getSavedArticles() //(token)?
         .then((res) => {
@@ -188,7 +189,7 @@ function signout() {
 function handleSearch({searchTerm}){
 if (searchTerm !== ''){
   setIsLoading(true);
-
+  setKeyword(searchTerm);
   newsApi.getArticles(searchTerm)
     .then((res) => {
       console.log('getArticles on handleSearch', searchTerm)
@@ -196,6 +197,8 @@ if (searchTerm !== ''){
         setSearchData({searchTerm})
         articles.current = res.articles;
         setFoundArticles(articles.current.slice(0, 3));
+        console.log(articles.current.slice(0,1));
+        console.log(articles.source);
       }
     })
     .catch((err) => {
@@ -210,8 +213,8 @@ if (searchTerm !== ''){
 
 //save
 
-function handleSave(article) {
-  mainApi.saveArticle(article) //do I need token there?
+function handleSave({keyword, title, description, source, publishedAt, url, urlToImage }) {
+  mainApi.saveArticle({keyword: source.name, source: source.name, title, text: description, date: publishedAt, link: url, image: urlToImage}) //do I need token there?
   .then((savedArticle) => {
     setSavedArticles([savedArticle, ...savedArticles])
   })
