@@ -20,11 +20,11 @@ export class MainApi {
     //   }).then(this._respond);
     // }
   
-    getSavedArticles() {
+    getSavedArticles(token) {
       return fetch(`${this._baseUrl}/articles`, {
         headers: {
           "Content-Type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("jwt")}`,
+          authorization: `Bearer ${token}`,
         }
       }).then(this._respond);
     }

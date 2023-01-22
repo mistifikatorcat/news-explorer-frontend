@@ -1,7 +1,6 @@
 import React from "react";
 import './cardgrid.css';
 import Card from "../Card/Card";
-import { useLocation } from "react-router-dom";
 import { nanoid } from "nanoid";
 
 

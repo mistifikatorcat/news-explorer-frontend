@@ -4,6 +4,7 @@ import './card.css';
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 function Card({
+  cards,
  article,
  isLoggedIn,
  onSave,
@@ -28,7 +29,13 @@ function Card({
 
   React.useEffect(() => {
     if (isSavedPage){
-      setRenderedCard(article)
+      setRenderedCard({
+        image: cards.urlToImage,
+        title: cards.title,
+        text: cards.text,
+        source: cards.source,
+        link: cards.link
+      })
     }
     else{
       setRenderedCard({
@@ -60,13 +67,27 @@ function Card({
   }, [renderedCard, savedArticles])
 
   const getDate = () => {
+    if (!isSavedPage){
     const articleDate = new Date(article.publishedAt)
+    
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     const month = months[articleDate.getMonth()];
     const day = articleDate.getDay();
     const year = articleDate.getFullYear();
     const fullDate = month + ' ' + day + ',' + year;
     return fullDate;
+  }
+  else{
+    
+    const articleDate = new Date(cards.date)
+    
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    const month = months[articleDate.getMonth()];
+    const day = articleDate.getDay();
+    const year = articleDate.getFullYear();
+    const fullDate = month + ' ' + day + ',' + year;
+    return fullDate;
+  }
   }
 
   const handleSave = (e) => {
@@ -91,7 +112,7 @@ function Card({
             <div className="card">
             <div
           className="card__image"
-          style={{backgroundImage: `url(${image})`}}
+          style={{backgroundImage: `url(${image || cards.image})`}}
         />
         {isSavedPage ? (
           <button
@@ -133,7 +154,7 @@ function Card({
 
         {currentLocation === '/saved-articles' && (
           <div className="card__hint card__hint-keyword">
-            <p className="card__hint-text">{keyword}</p>
+            <p className="card__hint-text">{keyword || cards.keyword}</p>
             </div>
         )}
         
@@ -141,7 +162,7 @@ function Card({
           <p className="card__date">{getDate()}</p>
           <h3 className="card__title">{title}</h3>
           <p className="card__text">{text}</p>
-          <p className="card__source">{source}</p>
+          <p className="card__source">{source || cards.source}</p>
         </div>
             </div>
             </a>

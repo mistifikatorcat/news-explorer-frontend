@@ -109,10 +109,11 @@ function App(){
     const token = localStorage.getItem('jwt');
     if (token) {
       mainApi
-        .getSavedArticles() //(token)?
+        .getSavedArticles(token) //(token)?
         .then((res) => {
           console.log('getting saved articles info ', res);
-          setSavedArticles(res || []);
+          articles.current = res;
+        setSavedArticles(articles.current.slice(0, 3));
         })
         .catch((err) => {
           console.log(err);
@@ -225,11 +226,11 @@ function handleSave({keyword, title, description, source, publishedAt, url, urlT
 
 //remove from saved
 
-function handleRemove(id) { 
-  mainApi.deleteArticle(id)
+function handleRemove(_id) { 
+  mainApi.deleteArticle(_id)
     .then(() => {
       const updatedList = savedArticles.filter((currentArticle) => {
-        return currentArticle._id !== id;
+        return currentArticle._id !== _id;
       })
       setSavedArticles(updatedList)
     })
