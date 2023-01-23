@@ -15,7 +15,8 @@ function Card({
  text,
  source,
  keyword,
- link
+ link,
+ id
  }){
 
   const location = useLocation();
@@ -34,7 +35,8 @@ function Card({
         title: cards.title,
         text: cards.text,
         source: cards.source,
-        link: cards.link
+        link: cards.link,
+        id: cards._id
       })
     }
     else{
@@ -44,7 +46,8 @@ function Card({
         title: article.title,
         text: article.text,
         source: article.source,
-        link: article.link
+        link: article.link,
+        id: article._id
       })
     }
   }, [article, savedArticles])

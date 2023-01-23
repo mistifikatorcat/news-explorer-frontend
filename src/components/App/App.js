@@ -44,6 +44,7 @@ function App(){
   //articles
 
   const [savedArticles, setSavedArticles] = React.useState([]);
+  const [cards, setCards] = React.useState([]);
   const [searchData, setSearchData] = React.useState({search: 'Economics'});
   const [keyword, setKeyword] = React.useState('');
 
@@ -226,17 +227,19 @@ function handleSave({keyword, title, description, source, publishedAt, url, urlT
 
 //remove from saved
 
-function handleRemove(_id) { 
-  mainApi.deleteArticle(_id)
-    .then(() => {
-      const updatedList = savedArticles.filter((currentArticle) => {
-        return currentArticle._id !== _id;
-      })
-      setSavedArticles(updatedList)
+function handleRemove(cardId) {
+  savedArticles.map((removedCard) => {
+      cardId = removedCard._id;
+      console.log(cardId);
+    
+  })
+  mainApi.deleteArticle(cardId)
+      .then((res) => {
+        setCurrentUser((currentUser) => ({
+          ...currentUser, savedArticles: savedArticles.map((removedCard) => removedCard._id !== res._id) 
+        }))
     })
-    .catch((err) => {
-      console.log(err);
-    })
+    .catch((err) => console.log(err))
 }
 
 
@@ -294,6 +297,7 @@ function closeAllPopups() {
             <SavedNews
             username={userData.username}
             savedArticles={savedArticles}
+            cards={cards}
             onDelete={handleRemove}
             />
             </ProtectedRoute>

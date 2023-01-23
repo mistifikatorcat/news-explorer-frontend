@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "../Card/Card";
-import { nanoid } from "nanoid";
 
 
 
@@ -16,7 +15,7 @@ function SavedCardGrid({savedArticles, onDelete, cards }){
             <ul className="grid__gallery">
             {savedArticles.slice(0, cardsShown).map((card, i) => (
             <Card
-              key={card._id || nanoid()}
+              key={card._id}
               cards={card}
               image={card.urlToImage}
               date={card.date}
@@ -25,6 +24,7 @@ function SavedCardGrid({savedArticles, onDelete, cards }){
               source={card.source.name}
               keyword={card.source.name}
               link={card.link}
+              id={card._id}
             onDelete={onDelete}
             />
           )
