@@ -71,6 +71,7 @@
     align-items: center;
     width: auto;
     transition: all 0.6s;
+    text-decoration: none;
   }
 
   .card__hint-text{
@@ -79,6 +80,8 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 1.2;
+    text-decoration: none;
+    color: black;
   }
   .card__delete{
     background: url('../../images/trash.svg') no-repeat center;

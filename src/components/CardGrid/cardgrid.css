@@ -21,9 +21,9 @@
     row-gap: 16px;
 }
 
-/* .grid__gallery-card{
-    max-height: 576px;
-} */
+.grid__gallery-card-link{
+    text-decoration: none;
+} 
 
 
 @media screen and (max-width: 1020px) {

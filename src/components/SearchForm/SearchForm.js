@@ -1,6 +1,6 @@
 import React from "react";
 import './searchForm.css';
-function SearchForm({onSearch}){
+function SearchForm({onSearch, onSearchClick}){
 
   const [searchTerm, setSearchTerm] = React.useState("");
 
@@ -32,7 +32,7 @@ function SearchForm({onSearch}){
           value={searchTerm}
           required
         />
-        <button type="submit" className="search-form__submit">Search</button>
+        <button type="submit" className="search-form__submit" onClick={onSearchClick}>Search</button>
                 </form>
             </div>
         </section>

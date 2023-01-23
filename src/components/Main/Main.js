@@ -10,9 +10,9 @@ function Main({ isLoading, isSearching,  isLoggedIn, foundArticles, savedArticle
     
     return(
         <main>
-      
-            <PreLoader />
-         
+      {
+         isLoading  &&  <PreLoader />
+         }
            {foundArticles.length !== 0 ? (
            <SearchResults 
            savedArticles={savedArticles}

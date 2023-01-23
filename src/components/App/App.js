@@ -267,6 +267,10 @@ function closeAllPopups() {
       setIsMobileMenuOpen(true);
     }
 
+    function handleSearchClick(){
+      setIsLoading(true);
+    }
+
 
     return(
         <CurrentUserContext.Provider value={currentUser}>
@@ -286,7 +290,7 @@ function closeAllPopups() {
            onMobileMenuClick={handleMobileMenuClick}
            onLogout={signout}
            onSearch={handleSearch}
-           
+           onSearchClick={handleSearchClick}
            isSearching={isSearching}
         />
         <Routes>
