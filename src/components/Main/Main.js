@@ -6,7 +6,7 @@ import About from "../About/About";
 import NothingFound from "../NothingFound/NothingFound";
 
 
-function Main({ isLoading, isSearching,  isLoggedIn, foundArticles, savedArticles, searchData, setSearchData, onSave, onDelete, isServerError}){
+function Main({ isLoading, keyword,  isLoggedIn, foundArticles, savedArticles, searchData, setSearchData, onSave, onDelete, isServerError}){
     
     return(
         <main>
@@ -23,8 +23,9 @@ function Main({ isLoading, isSearching,  isLoggedIn, foundArticles, savedArticle
           onSave={onSave}
            onDelete={onDelete} />
            ) : (
-           <NothingFound 
-           isServerError={isServerError}/>
+            keyword && (foundArticles.length === 0 &&
+           <NothingFound isServerError={isServerError}/>
+             )
            )
            }
             <About />       

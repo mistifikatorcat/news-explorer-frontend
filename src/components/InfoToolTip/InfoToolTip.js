@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-
+import './infotooltip.css';
 
 export default function InfoToolTip({ isOpen, onClose, onLoginClick }) {
   const enable = `${isOpen ? "popup_enabled" : ""}`;

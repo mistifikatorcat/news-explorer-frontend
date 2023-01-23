@@ -317,6 +317,7 @@ function closeAllPopups() {
           foundArticles={foundArticles}
           savedArticles={savedArticles}
           searchData={searchData}
+          keyword={keyword}
           setSearchData={setSearchData}
           onSave={handleSave}
           onDelete={handleRemove}
