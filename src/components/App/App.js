@@ -30,7 +30,6 @@ function App(){
   //search
 
   const [isLoading, setIsLoading] = React.useState(false);
-  const [isSearching, setIsSearching] = React.useState(false);
   const [foundArticles, setFoundArticles] = React.useState([]);
   const articles = React.useRef([]);
 
@@ -242,6 +241,13 @@ function handleRemove(cardId) {
     .catch((err) => console.log(err))
 }
 
+//show more cards
+
+function handleMore(){
+  setFoundArticles(articles.current.slice(0, foundArticles.length + 3));
+  console.log('handle more ' + (articles.current.slice(0, foundArticles.length + 3)))
+}
+
 
 
 //popups
@@ -291,7 +297,6 @@ function closeAllPopups() {
            onLogout={signout}
            onSearch={handleSearch}
            onSearchClick={handleSearchClick}
-           isSearching={isSearching}
         />
         <Routes>
           <Route 
@@ -311,7 +316,6 @@ function closeAllPopups() {
           path='/'
           element={
           <Main
-          isSearching={isSearching}
           isLoggedIn={isLoggedIn}
           isLoading={isLoading}
           foundArticles={foundArticles}
@@ -322,6 +326,7 @@ function closeAllPopups() {
           onSave={handleSave}
           onDelete={handleRemove}
           isServerError={isServerError}
+          onMore={handleMore}
           />
           } />
           <Route path="*" element={<Navigate to='/' />} />

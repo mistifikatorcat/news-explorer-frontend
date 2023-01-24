@@ -5,9 +5,9 @@ import { nanoid } from "nanoid";
 
 
 
-function CardGrid({foundArticles, savedArticles, isLoggedIn, onSave, onDelete}){
+function CardGrid({foundArticles, savedArticles, isLoggedIn, onSave, onMore, onDelete}){
 
-  const [cardsShown, setCardsShown] = React.useState(9);
+  const [cardsShown, setCardsShown] = React.useState(3);
 
 
     return(
@@ -34,7 +34,7 @@ function CardGrid({foundArticles, savedArticles, isLoggedIn, onSave, onDelete}){
           )} 
             </ul>
         </section>
-        <button type="button" className="search-results__more" onClick={() => setCardsShown((prev) => (prev+=3))}>Show More</button>
+        <button type="button" className="search-results__more" onClick={onMore}>Show More</button>
         </>
     )
 }

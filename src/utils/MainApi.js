@@ -57,13 +57,13 @@ export class MainApi {
   
   let node_env = 'production';
   
-  let baseUrl = 'http://localhost:3001' 
+  // let baseUrl = 'http://localhost:3001' 
+  let baseUrl = 'https://newsxplorerdevgrafov.students.nomoredomainssbs.ru';
   // node_env === 'production'
-//   ? 'https://newsxplorerdevgrafov.students.nomoredomainssbs.ru'
-//   : 'https://newsxplorerdevgrafov.students.nomoredomainssbs.ru';
+  // ? 'https://newsxplorerdevgrafov.students.nomoredomainssbs.ru'
+  // : 'https://newsxplorerdevgrafov.students.nomoredomainssbs.ru';
   
   
-  //let baseUrl = 'https://newsxplorerdevgrafov.students.nomoredomainssbs.ru';
   
   
   const mainApi = new MainApi({

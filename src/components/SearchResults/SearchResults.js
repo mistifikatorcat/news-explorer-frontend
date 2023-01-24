@@ -4,7 +4,7 @@ import CardGrid from "../CardGrid/CardGrid";
 
 
 
-function SearchResults({foundArticles, savedArticles, isLoggedIn, searchData, setSearchData, onSave, onDelete}){
+function SearchResults({foundArticles, savedArticles, isLoggedIn, searchData, setSearchData, onSave, onDelete, onMore}){
 
 React.useEffect(() => {
     setSearchData(searchData)
@@ -18,7 +18,8 @@ React.useEffect(() => {
                 foundArticles={foundArticles}
                 isLoggedIn={isLoggedIn}
                 onSave={onSave}
-                onDelete={onDelete}/>
+                onDelete={onDelete}
+                onMore={onMore}/>
         </section>
     )
 }
