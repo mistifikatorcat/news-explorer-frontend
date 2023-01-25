@@ -31,7 +31,7 @@ function Main({
           setSearchData={setSearchData}
           onSave={onSave}
           onDelete={onDelete}
-          onMore={onMore}
+          // onMore={onMore}
           onLoginClick={onLoginClick}
         />
       ) : (

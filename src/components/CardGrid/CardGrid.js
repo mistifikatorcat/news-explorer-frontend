@@ -35,7 +35,7 @@ function CardGrid({foundArticles, savedArticles, isLoggedIn, onSave, onMore, onD
           )} 
             </ul>
         </section>
-        <button type="button" className="search-results__more" onClick={onMore}>Show More</button>
+        <button type="button" className="search-results__more" onClick={() => setCardsShown((results) => (results+=3))}>Show More</button>
         </>
     )
 }

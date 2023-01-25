@@ -159,7 +159,8 @@ function handleLogin({ email, password }) {
         setCurrentUser(res.user);
         localStorage.setItem('jwt', res.token);
         //setToken(res.token);
-        history.push("/");
+        history("/");
+        window.location.reload(true);
       } 
     })
     .catch((err) => {
@@ -197,7 +198,7 @@ if (searchTerm !== ''){
       if (res.articles) {
         setSearchData({searchTerm})
         articles.current = res.articles;
-        setFoundArticles(articles.current.slice(0, 3));
+        setFoundArticles(articles.current);
         console.log(articles.current.slice(0,1));
         console.log(articles.source);
       }
@@ -241,12 +242,12 @@ function handleRemove(cardId) {
     .catch((err) => console.log(err))
 }
 
-//show more cards
+// //show more cards
 
-function handleMore(){
-  setFoundArticles(articles.current.slice(0, foundArticles.length + 3));
-  console.log('handle more ' + (articles.current.slice(0, foundArticles.length + 3)))
-}
+// function handleMore(){
+//   setFoundArticles(articles.current.slice(foundArticles, foundArticles.length+3));
+//   console.log('handle more ' + (articles.current.slice(0, foundArticles.length + 3)))
+// }
 
 
 
@@ -326,7 +327,7 @@ function closeAllPopups() {
           onSave={handleSave}
           onDelete={handleRemove}
           isServerError={isServerError}
-          onMore={handleMore}
+          // onMore={handleMore}
           onLoginClick={handleLoginClick}
 
           />

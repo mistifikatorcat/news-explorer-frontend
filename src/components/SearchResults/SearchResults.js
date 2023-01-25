@@ -19,7 +19,7 @@ React.useEffect(() => {
                 isLoggedIn={isLoggedIn}
                 onSave={onSave}
                 onDelete={onDelete}
-                onMore={onMore}
+                // onMore={onMore}
                 onLoginClick={onLoginClick}/>
         </section>
     )
