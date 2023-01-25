@@ -16,7 +16,8 @@ function Card({
  source,
  keyword,
  link,
- id
+ id,
+ onLoginClick
  }){
 
   const location = useLocation();
@@ -125,14 +126,22 @@ function Card({
           onClick={handleRemove}
           />
         ) 
-        : (
+        : ( 
+          isLoggedIn ?(
           <button
           type="button"
           className=" card__button card__save"
           aria-label="Save article"
           onClick={handleSave}
         />
-        ) }
+        ) : (
+          <button
+          type="button"
+          className=" card__button card__save"
+          aria-label="Save article"
+          onClick={onLoginClick}
+        />
+        ) )}
         {
           isLoggedIn ? (
             <div className="card__hint card__hint-save">

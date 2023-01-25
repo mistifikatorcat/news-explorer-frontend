@@ -14,10 +14,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=3004 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && scp -r ./build/* root@141.8.194.166:/root/articlemonkeys/news-explorer-frontend"
   },
   "eslintConfig": {
     "extends": [

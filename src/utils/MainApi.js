@@ -55,13 +55,12 @@ export class MainApi {
   //initializing api
   
   
-  let node_env = 'production';
   
-  // let baseUrl = 'http://localhost:3001' 
-  let baseUrl = 'https://newsxplorerdevgrafov.students.nomoredomainssbs.ru';
-  // node_env === 'production'
-  // ? 'https://newsxplorerdevgrafov.students.nomoredomainssbs.ru'
-  // : 'https://newsxplorerdevgrafov.students.nomoredomainssbs.ru';
+  
+  // let baseUrl = 'http://localhost:3000' 
+  let baseUrl = 'https://api.newsxplorerdevgrafov.students.nomoredomainssbs.ru';
+  
+  
   
   
   

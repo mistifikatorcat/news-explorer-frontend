@@ -327,6 +327,8 @@ function closeAllPopups() {
           onDelete={handleRemove}
           isServerError={isServerError}
           onMore={handleMore}
+          onLoginClick={handleLoginClick}
+
           />
           } />
           <Route path="*" element={<Navigate to='/' />} />

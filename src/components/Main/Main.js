@@ -17,6 +17,7 @@ function Main({
   onDelete,
   isServerError,
   onMore,
+  onLoginClick
 }) {
   return (
     <main>
@@ -31,6 +32,7 @@ function Main({
           onSave={onSave}
           onDelete={onDelete}
           onMore={onMore}
+          onLoginClick={onLoginClick}
         />
       ) : (
         keyword &&

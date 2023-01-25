@@ -5,7 +5,7 @@ import { nanoid } from "nanoid";
 
 
 
-function CardGrid({foundArticles, savedArticles, isLoggedIn, onSave, onMore, onDelete}){
+function CardGrid({foundArticles, savedArticles, isLoggedIn, onSave, onMore, onDelete, onLoginClick}){
 
   const [cardsShown, setCardsShown] = React.useState(3);
 
@@ -28,6 +28,7 @@ function CardGrid({foundArticles, savedArticles, isLoggedIn, onSave, onMore, onD
             isLoggedIn={isLoggedIn}
             onDelete={onDelete}
             onSave={onSave}
+            onLoginClick={onLoginClick}
             savedArticles={savedArticles}
             />
           )
