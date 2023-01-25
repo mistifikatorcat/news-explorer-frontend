@@ -1,16 +1,15 @@
-let node_env = 'production';
+let node_env = "production";
 
-let BASE_URL = 
-node_env === 'production'
-? 'https://api.newsxplorerdevgrafov.students.nomoredomainssbs.ru'
-: 'http://localhost:3000';
+let BASE_URL =
+  node_env === "production"
+    ? "https://api.newsxplorerdevgrafov.students.nomoredomainssbs.ru"
+    : "http://localhost:3000";
 
 // /*
 // let BASE_URL =
 // node_env === 'production'
 // ? 'http://localhost:3001'
 // : 'http://localhost:3001';
-
 
 const fetcher = (url, headers) => {
   return fetch(url, headers).then((res) =>
@@ -37,7 +36,7 @@ export const login = (email, password) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
-  })/*.then((data) => {
+  }); /*.then((data) => {
     localStorage.setItem("jwt", data.token);
     localStorage.setItem("email", email);
     return data;

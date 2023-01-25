@@ -17,7 +17,7 @@ function Main({
   onDelete,
   isServerError,
   onMore,
-  onLoginClick
+  onLoginClick,
 }) {
   return (
     <main>
