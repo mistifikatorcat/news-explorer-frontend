@@ -49,8 +49,8 @@ export default function PopupWithForm({
   };
 
   return (
-    <section className={`${name} popup ${enable}`} id={`${name}`}>
-      <div className={`${name}__container`} onClick={handleOverlay}>
+    <section className={`${name} popup ${enable}`} id={`${name}`} onClick={handleOverlay}>
+      <div className={`${name}__container`}>
         <button
           className={`popup__close ${name}__close`}
           onClick={onClose}
