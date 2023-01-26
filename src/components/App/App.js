@@ -240,18 +240,14 @@ function App() {
   }
 
   //remove from saved
-
-  function handleRemove(cardId) {
-    savedArticles.map((removedCard) => {
-      cardId = removedCard._id;
-      console.log(cardId);
-    });
+  function handleRemove(card) {
+      let cardId = card._id;
     mainApi
       .deleteArticle(cardId)
       .then((res) => {
         setCurrentUser((currentUser) => ({
           ...currentUser,
-          savedArticles: savedArticles.map(
+          setSavedArticles: savedArticles.filter(
             (removedCard) => removedCard._id !== res._id
           ),
         }));

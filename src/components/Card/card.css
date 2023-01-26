@@ -90,17 +90,17 @@
   background-color: #fff;
 }
 
-.card__save {
+.card__save-button {
   background: url("../../images/save.svg") no-repeat center;
   background-color: #fff;
 }
 
-.card__save_true {
+.card__save-button_active {
   background: url("../../images/saved.svg") no-repeat center;
   background-color: #fff;
 }
 
-.card__save:hover {
+.card__save-button:hover {
   background: url("../../images/saved.svg") no-repeat center;
   background-color: #fff;
 }

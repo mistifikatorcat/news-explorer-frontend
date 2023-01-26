@@ -25,6 +25,7 @@ function Card({
   const currentUser = React.useContext(CurrentUserContext);
 
   const [isCardSaved, setIsCardSaved] = React.useState(false);
+  const [bookmark, setBookmark] = React.useState(false);
   const [renderedCard, setRenderedCard] = React.useState({});
 
   React.useEffect(() => {
@@ -51,16 +52,11 @@ function Card({
   }, [article, savedArticles]);
 
   React.useEffect(() => {
-    if (!isSavedPage) {
-      savedArticles.map((card) => {
-        if (card.link === renderedCard.link) {
-          setIsCardSaved(true);
-        } else {
-          setIsCardSaved(false);
-        }
-      });
-    }
-  }, [renderedCard, savedArticles]);
+    if
+( isLoggedIn && savedArticles && savedArticles.some((card) => card.link === renderedCard.link)
+){
+  setIsCardSaved(true)
+}},[])
 
   const getDate = () => {
     if (!isSavedPage) {
@@ -110,19 +106,17 @@ function Card({
     }
   };
 
-  const handleSave = (e) => {
+  function handleSave(e) {
     e.preventDefault();
+    setIsCardSaved((state) => !state);
     if (isCardSaved) {
-      onDelete(article);
-      setIsCardSaved(false);
-      console.log('deleted isCardSaved' + isCardSaved);
+      onDelete(savedArticles.find((card) => card.link === article.url))
+      console.log('deleting card ' + article.url)
     } else {
-      onSave(article);
-      setIsCardSaved(true);
-      console.log('saved isCardSaved ' +isCardSaved);
+      onSave(article)
+      console.log('saving card ' + article.url)
     }
-    // setIsCardSaved((current) => !current)
-  };
+  }
 
   const handleRemove = (e) => {
     e.preventDefault();
