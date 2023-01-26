@@ -197,7 +197,7 @@ function App() {
             setSearchData({ searchTerm });
             articles.current = res.articles;
             setFoundArticles(articles.current);
-            console.log(articles.current.slice(0, 1));
+            console.log(articles.current);
             console.log(articles.source);
           }
         })

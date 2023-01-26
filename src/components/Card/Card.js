@@ -183,6 +183,7 @@ function Card({
           )}
 
           <div className="card__info">
+            <button onClick={console.log(isCardSaved)}/>
             <p className="card__date">{getDate()}</p>
             <h3 className="card__title">{title}</h3>
             <p className="card__text">{text}</p>
