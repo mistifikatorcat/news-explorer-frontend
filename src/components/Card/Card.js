@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./card.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
@@ -23,9 +23,9 @@ function Card({
   const currentLocation = location.pathname;
   const isSavedPage = currentLocation === "/saved-articles";
   const currentUser = React.useContext(CurrentUserContext);
+  const navigate = useNavigate();
 
   const [isCardSaved, setIsCardSaved] = React.useState(false);
-  const [bookmark, setBookmark] = React.useState(false);
   const [renderedCard, setRenderedCard] = React.useState({});
 
   React.useEffect(() => {
@@ -52,11 +52,16 @@ function Card({
   }, [article, savedArticles]);
 
   React.useEffect(() => {
-    if
-( isLoggedIn && savedArticles && savedArticles.some((card) => card.link === renderedCard.link)
-){
-  setIsCardSaved(true)
-}},[])
+    if (!isSavedPage) {
+      savedArticles.find((card) => {
+        if (card.link === renderedCard.link) {
+          setIsCardSaved(true);
+        } else {
+          setIsCardSaved(false);
+        }
+      });
+    }
+  }, [renderedCard, savedArticles]);
 
   const getDate = () => {
     if (!isSavedPage) {
@@ -106,17 +111,19 @@ function Card({
     }
   };
 
-  function handleSave(e) {
+  const handleSave = (e) => {
     e.preventDefault();
-    setIsCardSaved((state) => !state);
     if (isCardSaved) {
-      onDelete(savedArticles.find((card) => card.link === article.url))
-      console.log('deleting card ' + article.url)
+      onDelete(article);
+      setIsCardSaved(false);
+      console.log('deleted isCardSaved' + isCardSaved);
     } else {
-      onSave(article)
-      console.log('saving card ' + article.url)
+      onSave(article);
+      setIsCardSaved(true);
+      console.log('saved isCardSaved ' +isCardSaved);
     }
-  }
+    // navigate('/saved-articles');
+  };
 
   const handleRemove = (e) => {
     e.preventDefault();

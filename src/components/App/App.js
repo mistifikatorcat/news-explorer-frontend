@@ -233,6 +233,7 @@ function App() {
       }) //do I need token there?
       .then((savedArticle) => {
         setSavedArticles([savedArticle, ...savedArticles]);
+        // history('/');
       })
       .catch((err) => {
         console.log(err);
@@ -240,20 +241,23 @@ function App() {
   }
 
   //remove from saved
-  function handleRemove(card) {
-      let cardId = card._id;
+
+  function handleRemove(cardId) {
+    savedArticles.map((removedCard) => {
+      cardId = removedCard._id;
+      console.log(cardId);
+    });
     mainApi
       .deleteArticle(cardId)
       .then((res) => {
-        setCurrentUser((currentUser) => ({
-          ...currentUser,
-          setSavedArticles: savedArticles.filter(
+        setSavedArticles(savedArticles.filter(
             (removedCard) => removedCard._id !== res._id
           ),
-        }));
-      })
-      .catch((err) => console.log(err));
-  }
+        )})
+        .catch((err) => console.log(err));
+        // history('/saved-articles');
+      }
+  
 
   // //show more cards
 
@@ -367,6 +371,6 @@ function App() {
       </div>
     </CurrentUserContext.Provider>
   );
-}
+          }
 
 export default App;
