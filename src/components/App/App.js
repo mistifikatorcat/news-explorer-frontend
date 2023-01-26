@@ -113,7 +113,7 @@ function App() {
         .then((res) => {
           console.log("getting saved articles info ", res);
           articles.current = res;
-          setSavedArticles(articles.current.slice(0, 3));
+          setSavedArticles(articles.current);
         })
         .catch((err) => {
           console.log(err);

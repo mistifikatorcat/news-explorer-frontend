@@ -112,12 +112,16 @@ function Card({
 
   const handleSave = (e) => {
     e.preventDefault();
-    setIsCardSaved((current) => !current);
     if (isCardSaved) {
       onDelete(article);
+      setIsCardSaved(false);
+      console.log('deleted isCardSaved' + isCardSaved);
     } else {
       onSave(article);
+      setIsCardSaved(true);
+      console.log('saved isCardSaved ' +isCardSaved);
     }
+    // setIsCardSaved((current) => !current)
   };
 
   const handleRemove = (e) => {
