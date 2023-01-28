@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./card.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
@@ -23,7 +23,6 @@ function Card({
   const currentLocation = location.pathname;
   const isSavedPage = currentLocation === "/saved-articles";
   const currentUser = React.useContext(CurrentUserContext);
-  const navigate = useNavigate();
 
   const [isCardSaved, setIsCardSaved] = React.useState(false);
   const [renderedCard, setRenderedCard] = React.useState({});
@@ -53,7 +52,7 @@ function Card({
 
   React.useEffect(() => {
     if (!isSavedPage) {
-      savedArticles.find((card) => {
+      savedArticles.map((card) => {
         if (card.link === renderedCard.link) {
           setIsCardSaved(true);
         } else {
@@ -122,12 +121,15 @@ function Card({
       setIsCardSaved(true);
       console.log('saved isCardSaved ' +isCardSaved);
     }
-    // navigate('/saved-articles');
   };
 
   const handleRemove = (e) => {
     e.preventDefault();
+    function deleteCard(article){
+    console.log(article);
     onDelete(article);
+    }
+    deleteCard();
   };
 
   return (
@@ -183,7 +185,6 @@ function Card({
           )}
 
           <div className="card__info">
-            <button onClick={console.log(isCardSaved)}/>
             <p className="card__date">{getDate()}</p>
             <h3 className="card__title">{title}</h3>
             <p className="card__text">{text}</p>

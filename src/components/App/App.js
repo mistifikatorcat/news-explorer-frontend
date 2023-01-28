@@ -197,7 +197,7 @@ function App() {
             setSearchData({ searchTerm });
             articles.current = res.articles;
             setFoundArticles(articles.current);
-            console.log(articles.current);
+            console.log(articles.current.slice(0, 1));
             console.log(articles.source);
           }
         })
@@ -213,16 +213,24 @@ function App() {
   //save
 
   function handleSave({
+    _id,
     keyword,
     title,
+    text,
     description,
     source,
+    date,
     publishedAt,
+    link,
     url,
+    image,
     urlToImage,
-  }) {
-    mainApi
+  }){ 
+  savedArticles.find((item)=>{
+    if(item.link !== link){
+      mainApi
       .saveArticle({
+        _id,
         keyword: source.name,
         source: source.name,
         title,
@@ -232,13 +240,18 @@ function App() {
         image: urlToImage,
       }) //do I need token there?
       .then((savedArticle) => {
-        setSavedArticles([savedArticle, ...savedArticles]);
+        const {savedData} = savedArticle;
+        setSavedArticles([...savedArticles, savedData]);
         // history('/');
       })
       .catch((err) => {
         console.log(err);
       });
+    }
+  })
+  
   }
+
 
   //remove from saved
 
@@ -250,14 +263,15 @@ function App() {
     mainApi
       .deleteArticle(cardId)
       .then((res) => {
-        setSavedArticles(savedArticles.filter(
+        setCurrentUser((currentUser) => ({
+          ...currentUser,
+          savedArticles: savedArticles.map(
             (removedCard) => removedCard._id !== res._id
           ),
-        )})
-        .catch((err) => console.log(err));
-        // history('/saved-articles');
-      }
-  
+        }));
+      })
+      .catch((err) => console.log(err));
+  }
 
   // //show more cards
 
@@ -371,6 +385,6 @@ function App() {
       </div>
     </CurrentUserContext.Provider>
   );
-          }
+}
 
 export default App;
