@@ -23,11 +23,7 @@ function Card({
 	const currentLocation = location.pathname;
 	const isSavedPage = currentLocation === '/saved-articles';
 	const currentUser = React.useContext(CurrentUserContext);
-  const savedCard = savedArticles.find((item) => item.link === article.url);
   
-  const cardSaveButtonClassName = ` card__button card__save-button ${
-    savedCard ? "card__save-button_active" : ""
-  }`;
 
 	const [isCardSaved, setIsCardSaved] = React.useState(false);
 	const [renderedCard, setRenderedCard] = React.useState({});
@@ -133,6 +129,18 @@ function Card({
 		else {onSave(article)};
 	};
 
+  function changeIcon(){
+    let cardButtonSaveClassname;
+     const savedCard = savedArticles.find((item) => item.link === article.url);
+    if (savedCard){
+    cardButtonSaveClassname = 'card__button card__save-button_active';
+    }
+    else{
+    cardButtonSaveClassname = 'card__button card__save-button';
+    }
+    return cardButtonSaveClassname;
+    }
+
 	return (
 		<li className='grid__gallery-card'>
 			<a className='grid__gallery-card-link' href={link} target='_blank'>
@@ -149,7 +157,7 @@ function Card({
 						) : isLoggedIn ? (
 							<button
 								type='button'
-								className={cardSaveButtonClassName}
+								className={changeIcon()}
 								aria-label='Save article'
 								onClick={handleSave}
 							/>
