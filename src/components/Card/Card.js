@@ -161,17 +161,14 @@ function Card({
 								aria-label='Save article'
 								onClick={handleSave}
 							/>
-						) : (
-							''
+						) : (						
+						  <button
+						    type="button"
+						    className=" card__button card__save-button"
+						    aria-label="Save article"
+						    onClick={onLoginClick}
+						  />
 						)
-						//  (
-						//   <button
-						//     type="button"
-						//     className=" card__button card__save"
-						//     aria-label="Save article"
-						//     onClick={onLoginClick}
-						//   />
-						// )
 					}
 					{isLoggedIn ? (
 						<div className='card__hint card__hint-save'>
