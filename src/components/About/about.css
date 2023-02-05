@@ -1,136 +1,128 @@
 .about {
-    display: flex;
-    column-gap: 58px;
+  display: flex;
+  column-gap: 58px;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.about__image-wrapper {
+  width: 464px;
+  height: 464px;
+  align-self: center;
+  margin: 80px 0 80px 104px;
+}
+
+.about__image {
+  width: 100%;
+  height: 100%;
+  min-width: 464px;
+  min-height: 464px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.about__text-wrapper {
+  padding-top: 131px;
+  max-width: 600px;
+}
+
+.about__title {
+  font-family: "Roboto Slab", serif;
+  font-size: 40px;
+  line-height: 1.1;
+  font-weight: 400;
+  color: #1a1b22;
+  margin: 0;
+  padding-bottom: 24px;
+}
+
+.about__text {
+  font-family: "Roboto", serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 1020px) {
+  .about {
+    padding: 40px;
+    column-gap: 32px;
+    padding-bottom: 61px;
+  }
+
+  .about__image-wrapper {
+    width: 232px;
+    height: 232px;
+    margin: 80px auto;
+  }
+
+  .about__image {
+    min-width: 232px;
+    min-height: 232px;
+  }
+
+  .about__text-wrapper {
+    max-width: 424px;
     padding: 0;
-    margin: 0 auto
-    ;
   }
 
-  .about__image-wrapper{
-    width: 464px;
-    height: 464px;
-    align-self: center;
-    margin: 80px 0 80px 104px;
+  .about__title {
+    font-size: 30px;
+    line-height: 40px;
+    padding-bottom: 16px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .about {
+    flex-direction: column;
+    row-gap: 24px;
   }
 
-  .about__image{
-    width: 100%;
-    height: 100%;
-    min-width: 464px;
-    min-height: 464px;
-    object-fit: cover;
-    border-radius: 50%;
-    box-sizing: border-box;
+  .about__image-wrapper {
+    width: 272px;
+    height: 272px;
   }
 
-  .about__text-wrapper{
-    padding-top: 131px;
-    max-width: 600px;
+  .about__image {
+    min-width: 272px;
+    min-height: 272px;
   }
 
-  .about__title{
-    font-family: 'Roboto Slab', serif;
-    font-size: 40px;
-    line-height: 1.1;
-    font-weight: 400;
-    color: #1A1B22;
-    margin: 0;
-    padding-bottom: 24px;
+  .about__text-wrapper {
+    padding-bottom: 128px;
   }
 
-  .about__text{
-    font-family: "Roboto", serif;
+  .about__text {
     font-size: 18px;
     font-weight: 400;
     line-height: 24px;
     letter-spacing: 0px;
     text-align: left;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .about {
+    max-width: 288px;
     margin: 0;
-    padding: 0;
+    padding: 40px 16px;
+    padding-top: 32px;
+    padding-bottom: 0;
   }
 
-  @media screen and (max-width: 1020px) {
-    .about{
-        padding: 40px;
-        column-gap: 32px;
-        padding-bottom: 61px;
-    }
-
-    .about__image-wrapper{
-        width: 232px;
-        height: 232px;
-        margin: 80px auto;
-    }
-
-    .about__image{
-        min-width: 232px;
-        min-height: 232px;
-    }
-
-    .about__text-wrapper{
-        max-width: 424px;
-        padding: 0;
-    }
-
-    .about__title{
-    font-size: 30px;
-    line-height: 40px;
-    padding-bottom: 16px;
-    }
-
-
+  .about__image-wrapper {
+    margin: 0;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
-  @media screen and (max-width: 600px) {
-
-    .about{
-      flex-direction: column;
-      row-gap: 24px;
-    }
-
-    .about__image-wrapper{
-      width: 272px;
-      height: 272px;
+  .about__text-wrapper {
+    width: 288px;
   }
-
-  .about__image{
-      min-width: 272px;
-      min-height: 272px;
-  }
-
-  .about__text-wrapper{
-    padding-bottom: 128px;
-  }
-
-  .about__text{
-font-size: 18px;
-font-weight: 400;
-line-height: 24px;
-letter-spacing: 0px;
-text-align: left;
-
-  }
-
-  }
-
-
-  @media screen and (max-width: 430px) {
-
-    .about{
-      max-width: 288px;
-      margin: 0;
-      padding: 40px 16px;
-      padding-top: 32px;
-      padding-bottom: 0;
-    }
-
-    .about__image-wrapper{
-      margin: 0;
-      padding-left: 8px;
-      padding-right: 8px;
-    }
-
-    .about__text-wrapper{
-      width: 288px;
-    }
-  }
+}

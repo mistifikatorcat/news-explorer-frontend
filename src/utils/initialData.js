@@ -78,7 +78,8 @@ export const initialData = [
         Pa Pa Oom M-Mao Mao`,
     source: "me",
     date: "Not today",
-    image: "https://media.tenor.com/dQHLJsa2YicAAAAM/family-guy-peter-griffin.gif",
+    image:
+      "https://media.tenor.com/dQHLJsa2YicAAAAM/family-guy-peter-griffin.gif",
     owner: "637ddf32983e9dd49645672d",
     __v: 0,
   },

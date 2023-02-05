@@ -1,37 +1,52 @@
 import React from "react";
-import './cardgrid.css';
+import "./cardgrid.css";
 import Card from "../Card/Card";
-import { useLocation } from "react-router-dom";
+import { nanoid } from "nanoid";
 
+function CardGrid({
+  foundArticles,
+  savedArticles,
+  isLoggedIn,
+  onSave,
+  onMore,
+  onDelete,
+  onLoginClick,
+}) {
+  const [cardsShown, setCardsShown] = React.useState(3);
 
-
-function CardGrid({articles}){
-
-  const location = useLocation();
-  const currentLocation = location.pathname;
-  const isSaved = currentLocation === '/saved-articles';
-
-    return(
-        <section className={` grid ${isSaved ? 'grid_saved' : ' '}`}>
-            <ul className="grid__gallery">
-            {articles.map((card) => (
+  return (
+    <>
+      <section className="grid">
+        <ul className="grid__gallery">
+          {foundArticles.slice(0, cardsShown).map((card, i) => (
             <Card
-              key={card._id}
-              keyword={card.keyword}
+              key={card._id || nanoid()}
+              article={card}
+              image={card.urlToImage}
+              date={card.publishedAt}
               title={card.title}
               text={card.text}
-              source={card.source}
-              date={card.date}
-              image={card.image}
-            //   onCardClick={props.onCardClick}
-            //   onLikeClick={props.onLikeClick}
-            //   onDeleteClick={props.onDeleteClick}
+              source={card.source.name}
+              keyword={card.source.name}
+              link={card.link}
+              isLoggedIn={isLoggedIn}
+              onDelete={onDelete}
+              onSave={onSave}
+              onLoginClick={onLoginClick}
+              savedArticles={savedArticles}
             />
-          )
-          )} 
-            </ul>
-        </section>
-    )
+          ))}
+        </ul>
+      </section>
+      <button
+        type="button"
+        className="search-results__more"
+        onClick={() => setCardsShown((results) => (results += 3))}
+      >
+        Show More
+      </button>
+    </>
+  );
 }
 
 export default CardGrid;
